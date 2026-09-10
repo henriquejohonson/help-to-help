@@ -1,0 +1,3217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Help to Help</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f4f6f8;
+
+            color: #1f2937;
+
+            min-height: 100vh;
+
+            transition: 0.3s;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 40px;
+
+            background-color: white;
+
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        header h1 {
+
+            font-size: 24px;
+
+            color: #111827;
+
+        }
+
+        .acoes-header {
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+
+        }
+
+        .tema,
+        .botao-admin {
+
+            padding: 11px 16px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .tema {
+
+            background-color: #374151;
+
+        }
+
+        .tema:hover {
+
+            background-color: #111827;
+
+        }
+
+        .botao-admin {
+
+            background-color: #4f46e5;
+
+        }
+
+        .botao-admin:hover {
+
+            background-color: #4338ca;
+
+        }
+
+
+        /* =====================================================
+           LETREIRO
+        ===================================================== */
+
+        .letreiro {
+
+            width: 100%;
+
+            overflow: hidden;
+
+            background-color: #4f46e5;
+
+            color: white;
+
+            padding: 10px 0;
+
+            white-space: nowrap;
+
+        }
+
+        .letreiro-conteudo {
+
+            display: inline-block;
+
+            padding-left: 100%;
+
+            animation: passar 45s linear infinite;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+        .separador {
+
+            margin: 0 35px;
+
+            opacity: 0.7;
+
+        }
+
+        @keyframes passar {
+
+            0% {
+
+                transform: translateX(0);
+
+            }
+
+            100% {
+
+                transform: translateX(-100%);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+
+            width: 92%;
+
+            max-width: 1000px;
+
+            margin: 50px auto 80px;
+
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+        .titulo h2 {
+
+            font-size: 30px;
+
+            color: #111827;
+
+            margin-bottom: 8px;
+
+        }
+
+        .titulo p {
+
+            color: #6b7280;
+
+            font-size: 15px;
+
+        }
+
+
+        /* =====================================================
+           ESTATÍSTICAS
+        ===================================================== */
+
+        .estatisticas {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 35px;
+
+        }
+
+        .estatistica {
+
+            background-color: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            transition: 0.25s;
+
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+
+        }
+
+        .estatistica:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #4f46e5;
+
+        }
+
+        .estatistica-numero {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: #4f46e5;
+
+            margin-bottom: 5px;
+
+        }
+
+        .estatistica-titulo {
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            color: #6b7280;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        /* =====================================================
+           BUSCA
+        ===================================================== */
+
+        .busca {
+
+            display: flex;
+
+            gap: 10px;
+
+            max-width: 750px;
+
+            margin: 0 auto;
+
+        }
+
+        .input-container {
+
+            position: relative;
+
+            flex: 1;
+
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 16px 45px 16px 18px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            outline: none;
+
+            background-color: white;
+
+            color: #1f2937;
+
+        }
+
+        input:focus {
+
+            border-color: #4f46e5;
+
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+
+        }
+
+        .botao-buscar {
+
+            padding: 0 23px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background-color: #4f46e5;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+        .botao-buscar:hover {
+
+            background-color: #4338ca;
+
+        }
+
+        .limpar {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #9ca3af;
+
+            cursor: pointer;
+
+            display: none;
+
+            font-size: 16px;
+
+        }
+
+        .limpar:hover {
+
+            color: #ef4444;
+
+        }
+
+
+        /* =====================================================
+           SUGESTÕES
+        ===================================================== */
+
+        .sugestoes {
+
+            position: absolute;
+
+            top: calc(100% + 6px);
+
+            left: 0;
+
+            right: 0;
+
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+
+            overflow: hidden;
+
+            z-index: 100;
+
+            display: none;
+
+            text-align: left;
+
+        }
+
+        .sugestao {
+
+            padding: 13px 16px;
+
+            cursor: pointer;
+
+            border-bottom: 1px solid #f1f5f9;
+
+            transition: 0.15s;
+
+        }
+
+        .sugestao:last-child {
+
+            border-bottom: none;
+
+        }
+
+        .sugestao:hover {
+
+            background-color: #f5f3ff;
+
+        }
+
+        .sugestao-titulo {
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            color: #374151;
+
+        }
+
+        .sugestao-categoria {
+
+            font-size: 11px;
+
+            color: #9ca3af;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =====================================================
+           CATEGORIAS
+        ===================================================== */
+
+        .secao-titulo {
+
+            text-align: center;
+
+            margin: 50px 0 20px;
+
+        }
+
+        .secao-titulo h3 {
+
+            font-size: 20px;
+
+        }
+
+        .secao-titulo p {
+
+            color: #6b7280;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+
+        }
+
+        .categorias {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 15px;
+
+        }
+
+        .card {
+
+            background-color: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 20px 10px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #4f46e5;
+
+            box-shadow: 0 8px 20px rgba(79,70,229,0.15);
+
+        }
+
+        .card .icone {
+
+            font-size: 30px;
+
+            margin-bottom: 9px;
+
+        }
+
+        .card h4 {
+
+            font-size: 14px;
+
+        }
+
+        .card span {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 11px;
+
+            color: #6b7280;
+
+        }
+
+
+        /* =====================================================
+           RESULTADO
+        ===================================================== */
+
+        #resultado {
+
+            display: none;
+
+            max-width: 750px;
+
+            margin: 30px auto 0;
+
+            padding: 25px;
+
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            line-height: 1.5;
+
+            animation: aparecer 0.3s ease;
+
+        }
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(10px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        #resultado h2 {
+
+            color: #4f46e5;
+
+            margin-bottom: 15px;
+
+        }
+
+        #resultado p {
+
+            margin: 7px 0;
+
+        }
+
+        #resultado code {
+
+            display: block;
+
+            background-color: #f1f5f9;
+
+            padding: 10px;
+
+            margin: 8px 0;
+
+            border-radius: 6px;
+
+            font-family: Consolas, monospace;
+
+            white-space: pre-wrap;
+
+        }
+
+
+        /* =====================================================
+           AVALIAÇÃO
+        ===================================================== */
+
+        .avaliacao {
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #e5e7eb;
+
+            text-align: center;
+
+        }
+
+        .avaliacao p {
+
+            font-weight: bold;
+
+            margin-bottom: 12px !important;
+
+        }
+
+        .botoes-avaliacao {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+        }
+
+        .btn-resolvido,
+        .btn-nao-resolvido {
+
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+        .btn-resolvido {
+
+            background-color: #16a34a;
+
+        }
+
+        .btn-nao-resolvido {
+
+            background-color: #dc2626;
+
+        }
+
+        .btn-resolvido:hover {
+
+            background-color: #15803d;
+
+        }
+
+        .btn-nao-resolvido:hover {
+
+            background-color: #b91c1c;
+
+        }
+
+
+        /* =====================================================
+           HISTÓRICO
+        ===================================================== */
+
+        .historico {
+
+            max-width: 750px;
+
+            margin: 45px auto 0;
+
+        }
+
+        .historico-cabecalho {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+        }
+
+        .historico-cabecalho h3 {
+
+            font-size: 18px;
+
+        }
+
+        .limpar-historico {
+
+            border: none;
+
+            background: transparent;
+
+            color: #4f46e5;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 12px;
+
+        }
+
+        .lista-historico {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+        .item-historico {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 13px 15px;
+
+            background-color: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+        }
+
+        .item-historico:hover {
+
+            border-color: #4f46e5;
+
+        }
+
+        .nome {
+
+            font-size: 14px;
+
+        }
+
+        .hora {
+
+            color: #9ca3af;
+
+            font-size: 11px;
+
+        }
+
+        .sem-historico {
+
+            text-align: center;
+
+            color: #9ca3af;
+
+            padding: 15px;
+
+        }
+
+
+        /* =====================================================
+           MODAL CADASTRO
+        ===================================================== */
+
+        .modal-fundo {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.55);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 1000;
+
+            padding: 20px;
+
+        }
+
+        .modal {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background-color: white;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
+        }
+
+        .modal-cabecalho {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+        }
+
+        .modal-cabecalho h2 {
+
+            color: #111827;
+
+        }
+
+        .fechar {
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            color: #6b7280;
+
+        }
+
+        .campo-form {
+
+            margin-bottom: 17px;
+
+        }
+
+        .campo-form label {
+
+            display: block;
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+            margin-bottom: 7px;
+
+        }
+
+        .campo-form input,
+        .campo-form select,
+        .campo-form textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            outline: none;
+
+        }
+
+        .campo-form textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+
+        }
+
+        .passos {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+        .passo {
+
+            display: flex;
+
+            gap: 8px;
+
+            align-items: center;
+
+        }
+
+        .numero-passo {
+
+            width: 28px;
+
+            height: 28px;
+
+            min-width: 28px;
+
+            border-radius: 50%;
+
+            background-color: #4f46e5;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+        }
+
+        .botao-adicionar-passo {
+
+            margin-top: 8px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #4f46e5;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+        .botao-salvar {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background-color: #16a34a;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+        .botao-salvar:hover {
+
+            background-color: #15803d;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #6b7280;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        body.dark {
+
+            background-color: #111827;
+
+            color: #f9fafb;
+
+        }
+
+        body.dark header {
+
+            background-color: #1f2937;
+
+            border-color: #374151;
+
+        }
+
+        body.dark header h1 {
+
+            color: white;
+
+        }
+
+        body.dark .titulo h2,
+        body.dark .secao-titulo h3 {
+
+            color: white;
+
+        }
+
+        body.dark .titulo p,
+        body.dark .secao-titulo p {
+
+            color: #9ca3af;
+
+        }
+
+        body.dark .estatistica,
+        body.dark .card,
+        body.dark #resultado,
+        body.dark .item-historico {
+
+            background-color: #1f2937;
+
+            border-color: #374151;
+
+        }
+
+        body.dark .estatistica-titulo,
+        body.dark .card span {
+
+            color: #9ca3af;
+
+        }
+
+        body.dark input {
+
+            background-color: #1f2937;
+
+            color: white;
+
+            border-color: #4b5563;
+
+        }
+
+        body.dark input::placeholder {
+
+            color: #9ca3af;
+
+        }
+
+        body.dark .sugestoes {
+
+            background-color: #1f2937;
+
+            border-color: #374151;
+
+        }
+
+        body.dark .sugestao:hover {
+
+            background-color: #374151;
+
+        }
+
+        body.dark .sugestao-titulo {
+
+            color: white;
+
+        }
+
+        body.dark #resultado code {
+
+            background-color: #111827;
+
+            color: white;
+
+        }
+
+        body.dark .item-historico {
+
+            color: white;
+
+        }
+
+        body.dark .modal {
+
+            background-color: #1f2937;
+
+        }
+
+        body.dark .modal-cabecalho h2 {
+
+            color: white;
+
+        }
+
+        body.dark .campo-form input,
+        body.dark .campo-form select,
+        body.dark .campo-form textarea {
+
+            background-color: #111827;
+
+            color: white;
+
+            border-color: #4b5563;
+
+        }
+
+        body.dark footer {
+
+            color: #9ca3af;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .estatisticas {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .categorias {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+            .card:last-child {
+
+                grid-column: span 2;
+
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 18px 20px;
+
+            }
+
+            header h1 {
+
+                font-size: 19px;
+
+            }
+
+            .acoes-header {
+
+                gap: 5px;
+
+            }
+
+            .botao-admin,
+            .tema {
+
+                padding: 9px 10px;
+
+                font-size: 11px;
+
+            }
+
+            main {
+
+                margin-top: 40px;
+
+            }
+
+            .titulo h2 {
+
+                font-size: 25px;
+
+            }
+
+            .busca {
+
+                flex-direction: column;
+
+            }
+
+            .botao-buscar {
+
+                height: 48px;
+
+            }
+
+            .categorias {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <h1>
+            Help to Help
+        </h1>
+
+        <div class="acoes-header">
+
+            <button
+                class="botao-admin"
+                onclick="abrirModal()"
+            >
+                ➕ Nova solução
+            </button>
+
+            <button
+                class="tema"
+                id="botaoTema"
+                onclick="alternarTema()"
+            >
+                🌙 Dark
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         LETREIRO
+    ===================================================== -->
+
+    <div class="letreiro">
+
+        <div class="letreiro-conteudo">
+
+            Possíveis erros
+
+            <span class="separador">•</span>
+
+            Áudio
+
+            <span class="separador">•</span>
+
+            VBAN
+
+            <span class="separador">•</span>
+
+            Goto
+
+            <span class="separador">•</span>
+
+            Front End
+
+            <span class="separador">•</span>
+
+            VPN
+
+            <span class="separador">•</span>
+
+            Áudio
+
+            <span class="separador">•</span>
+
+            VBAN
+
+            <span class="separador">•</span>
+
+            Goto
+
+            <span class="separador">•</span>
+
+            Front End
+
+            <span class="separador">•</span>
+
+            VPN
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main>
+
+
+        <section class="titulo">
+
+            <h2>
+                Central de Suporte Técnico
+            </h2>
+
+            <p>
+                Encontre rapidamente a solução para o chamado.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ESTATÍSTICAS
+        ================================================= -->
+
+        <section class="estatisticas">
+
+
+            <div class="estatistica">
+
+                <div
+                    class="estatistica-numero"
+                    id="totalSolucoes"
+                >
+                    5
+                </div>
+
+                <div class="estatistica-titulo">
+                    📚 SOLUÇÕES
+                </div>
+
+            </div>
+
+
+            <div class="estatistica">
+
+                <div
+                    class="estatistica-numero"
+                    id="maisUsados"
+                >
+                    0
+                </div>
+
+                <div class="estatistica-titulo">
+                    🔥 PESQUISAS
+                </div>
+
+            </div>
+
+
+            <div class="estatistica">
+
+                <div
+                    class="estatistica-numero"
+                    id="porcentagemResolvidos"
+                >
+                    0%
+                </div>
+
+                <div class="estatistica-titulo">
+                    ✅ RESOLVIDOS
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             BUSCA
+        ================================================= -->
+
+        <div class="busca">
+
+            <div class="input-container">
+
+                <input
+                    type="text"
+                    id="chamado"
+                    placeholder="🔍 O que está acontecendo?"
+                    autocomplete="off"
+                    oninput="campoDigitado()"
+                    onkeydown="pressionouEnter(event)"
+                >
+
+                <button
+                    class="limpar"
+                    id="botaoLimpar"
+                    onclick="limparBusca()"
+                >
+                    ✕
+                </button>
+
+
+                <div
+                    class="sugestoes"
+                    id="sugestoes"
+                ></div>
+
+            </div>
+
+
+            <button
+                class="botao-buscar"
+                onclick="buscarChamado()"
+            >
+                🔎 Buscar
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULTADO
+        ================================================= -->
+
+        <div id="resultado"></div>
+
+
+        <!-- =================================================
+             CATEGORIAS
+        ================================================= -->
+
+        <div class="secao-titulo">
+
+            <h3>
+                Chamados mais comuns
+            </h3>
+
+            <p>
+                Clique em uma categoria para consultar a solução.
+            </p>
+
+        </div>
+
+
+        <div class="categorias">
+
+
+            <div
+                class="card"
+                onclick="buscarCategoria('áudio')"
+            >
+
+                <div class="icone">
+                    🎧
+                </div>
+
+                <h4>
+                    ÁUDIO
+                </h4>
+
+                <span>
+                    Problemas de áudio
+                </span>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="buscarCategoria('vpn')"
+            >
+
+                <div class="icone">
+                    🌐
+                </div>
+
+                <h4>
+                    VPN
+                </h4>
+
+                <span>
+                    Problemas de conexão
+                </span>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="buscarCategoria('goto')"
+            >
+
+                <div class="icone">
+                    ⚙️
+                </div>
+
+                <h4>
+                    GOTO
+                </h4>
+
+                <span>
+                    Erros WMI
+                </span>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="buscarCategoria('vban')"
+            >
+
+                <div class="icone">
+                    🔊
+                </div>
+
+                <h4>
+                    VBAN
+                </h4>
+
+                <span>
+                    Áudio mudo
+                </span>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="buscarCategoria('front end')"
+            >
+
+                <div class="icone">
+                    🖥️
+                </div>
+
+                <h4>
+                    FRONT-END
+                </h4>
+
+                <span>
+                    Problemas de acesso
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             HISTÓRICO
+        ================================================= -->
+
+        <section class="historico">
+
+
+            <div class="historico-cabecalho">
+
+                <h3>
+                    🕘 Pesquisas recentes
+                </h3>
+
+                <button
+                    class="limpar-historico"
+                    onclick="limparHistorico()"
+                >
+                    Limpar histórico
+                </button>
+
+            </div>
+
+
+            <div
+                class="lista-historico"
+                id="listaHistorico"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <p>
+            Help to Help • Central de Suporte Técnico
+        </p>
+
+        <p>
+            L.H.J
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MODAL - CADASTRAR SOLUÇÃO
+    ===================================================== -->
+
+    <div
+        class="modal-fundo"
+        id="modalFundo"
+    >
+
+        <div class="modal">
+
+
+            <div class="modal-cabecalho">
+
+                <h2>
+                    📝 Cadastrar nova solução
+                </h2>
+
+                <button
+                    class="fechar"
+                    onclick="fecharModal()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <!-- NOME -->
+
+            <div class="campo-form">
+
+                <label>
+                    Nome da solução
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeSolucao"
+                    placeholder="Ex: Erro de impressora"
+                >
+
+            </div>
+
+
+            <!-- CATEGORIA -->
+
+            <div class="campo-form">
+
+                <label>
+                    Categoria
+                </label>
+
+                <select id="categoriaSolucao">
+
+                    <option value="Áudio">
+                        🎧 Áudio
+                    </option>
+
+                    <option value="VPN">
+                        🌐 VPN
+                    </option>
+
+                    <option value="Goto">
+                        ⚙️ Goto
+                    </option>
+
+                    <option value="VBAN">
+                        🔊 VBAN
+                    </option>
+
+                    <option value="Front-End">
+                        🖥️ Front-End
+                    </option>
+
+                    <option value="Impressora">
+                        🖨️ Impressora
+                    </option>
+
+                    <option value="Windows">
+                        💻 Windows
+                    </option>
+
+                    <option value="Outros">
+                        📁 Outros
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PALAVRAS-CHAVE -->
+
+            <div class="campo-form">
+
+                <label>
+                    Palavras-chave
+                </label>
+
+                <input
+                    type="text"
+                    id="palavrasSolucao"
+                    placeholder="impressora, imprimir, impressão"
+                >
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <div class="campo-form">
+
+                <label>
+                    Descrição
+                </label>
+
+                <textarea
+                    id="descricaoSolucao"
+                    placeholder="Descreva o problema e a solução..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- PASSOS -->
+
+            <div class="campo-form">
+
+                <label>
+                    Passos para solução
+                </label>
+
+
+                <div
+                    class="passos"
+                    id="listaPassos"
+                >
+
+
+                    <div class="passo">
+
+                        <div class="numero-passo">
+                            1
+                        </div>
+
+                        <input
+                            type="text"
+                            class="input-passo"
+                            placeholder="Ex: Verificar serviço spooler"
+                        >
+
+                    </div>
+
+
+                    <div class="passo">
+
+                        <div class="numero-passo">
+                            2
+                        </div>
+
+                        <input
+                            type="text"
+                            class="input-passo"
+                            placeholder="Ex: Reiniciar impressora"
+                        >
+
+                    </div>
+
+
+                    <div class="passo">
+
+                        <div class="numero-passo">
+                            3
+                        </div>
+
+                        <input
+                            type="text"
+                            class="input-passo"
+                            placeholder="Ex: Testar impressão"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    class="botao-adicionar-passo"
+                    onclick="adicionarPasso()"
+                >
+                    ➕ Adicionar outro passo
+                </button>
+
+            </div>
+
+
+            <button
+                class="botao-salvar"
+                onclick="salvarSolucao()"
+            >
+                💾 Salvar solução
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================================================
+           BANCO DE SOLUÇÕES PADRÃO
+        ===================================================== */
+
+        const solucoesPadrao = [
+
+            {
+                id: "audio",
+                nome: "Áudio mudo VBAN",
+                categoria: "Áudio",
+                palavras: [
+                    "audio",
+                    "áudio",
+                    "mudo",
+                    "som",
+                    "vban"
+                ],
+                descricao:
+                    "Procedimento para solucionar problemas de áudio mudo através do VBAN.",
+                passos: [
+                    "Reiniciar a máquina virtual.",
+                    "Verificar o firewall. Caso esteja ativado, desabilitar.",
+                    "Fazer o teste de áudio no VoiceMeeter. Caso o colaborador consiga se ouvir, significa que está tudo certo."
+                ]
+            },
+
+            {
+                id: "goto",
+                nome: "Erro Goto / WMI",
+                categoria: "Goto",
+                palavras: [
+                    "goto",
+                    "wmic",
+                    "wmi",
+                    "os alias",
+                    "alias"
+                ],
+                descricao:
+                    "Procedimento para solucionar erro de Goto relacionado ao WMI.",
+                passos: [
+                    "Execute: winmgmt /verifyrepository",
+                    "Se o resultado estiver inconsistente, execute: winmgmt /salvagerepository",
+                    "Execute novamente: winmgmt /verifyrepository",
+                    "Teste: wmic OS get OSArchitecture",
+                    "Caso continue apresentando erro, pare o serviço winmgmt com: net stop winmgmt",
+                    "Renomeie a pasta C:\\Windows\\System32\\wbem\\repository",
+                    "Execute: net start winmgmt",
+                    "Abra o CMD como Administrador.",
+                    "Execute: cd C:\\Windows\\System32\\wbem\\",
+                    "Execute: for /f %s in ('dir /b *.mof') do mofcomp %s",
+                    "Execute: for /f %s in ('dir /b en-us\\*.mfl') do mofcomp en-us\\%s",
+                    "Teste novamente: wmic OS get OSArchitecture"
+                ]
+            },
+
+            {
+                id: "vban",
+                nome: "Áudio VBAN",
+                categoria: "VBAN",
+                palavras: [
+                    "vban",
+                    "áudio vban",
+                    "audio vban"
+                ],
+                descricao:
+                    "Procedimento para verificar problemas relacionados ao áudio VBAN.",
+                passos: [
+                    "Reiniciar a máquina virtual.",
+                    "Verificar o firewall.",
+                    "Realizar teste de áudio no VoiceMeeter.",
+                    "Confirmar se o colaborador consegue se ouvir."
+                ]
+            },
+
+            {
+                id: "frontend",
+                nome: "Problema Front-End",
+                categoria: "Front-End",
+                palavras: [
+                    "front",
+                    "frontend",
+                    "front end",
+                    "java",
+                    "edge"
+                ],
+                descricao:
+                    "Procedimento para liberar o acesso ao Front-End através do Microsoft Edge.",
+                passos: [
+                    "Abra o navegador Edge.",
+                    "Acesse Configurações.",
+                    "Entre em Navegador padrão.",
+                    "Localize a opção Permitir.",
+                    "Adicione uma Página e cole a URL do Front-End.",
+                    "Aceite a tela do Java.",
+                    "Copie e cole a URL novamente."
+                ]
+            },
+
+            {
+                id: "vpn",
+                nome: "Erro VPN / OpenVPN",
+                categoria: "VPN",
+                palavras: [
+                    "vpn",
+                    "openvpn",
+                    "conexão vpn",
+                    "conectar vpn"
+                ],
+                descricao:
+                    "Procedimento para verificar serviços relacionados à OpenVPN.",
+                passos: [
+                    "Pressione Win + R.",
+                    "Digite: services.msc",
+                    "Localize os serviços relacionados à OpenVPN.",
+                    "Verifique se os serviços estão em execução.",
+                    "Caso algum esteja parado, clique com o botão direito e selecione Iniciar.",
+                    "Caso o serviço já esteja em execução, selecione Reiniciar.",
+                    "Tente conectar a VPN novamente."
+                ]
+            }
+
+        ];
+
+
+        /* =====================================================
+           UTILITÁRIO
+        ===================================================== */
+
+        function obterSolucoes() {
+
+            const personalizadas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "solucoesPersonalizadas"
+                    )
+                ) || [];
+
+            return [
+                ...solucoesPadrao,
+                ...personalizadas
+            ];
+
+        }
+
+
+        /* =====================================================
+           TEMA
+        ===================================================== */
+
+        function alternarTema() {
+
+            document.body.classList.toggle("dark");
+
+            const botao =
+                document.getElementById("botaoTema");
+
+
+            if (
+                document.body.classList.contains("dark")
+            ) {
+
+                botao.innerHTML = "☀️ Light";
+
+                localStorage.setItem(
+                    "tema",
+                    "dark"
+                );
+
+            } else {
+
+                botao.innerHTML = "🌙 Dark";
+
+                localStorage.setItem(
+                    "tema",
+                    "light"
+                );
+
+            }
+
+        }
+
+
+        function carregarTema() {
+
+            const tema =
+                localStorage.getItem("tema");
+
+            if (tema === "dark") {
+
+                document.body.classList.add("dark");
+
+                document.getElementById(
+                    "botaoTema"
+                ).innerHTML = "☀️ Light";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           BUSCA INTELIGENTE
+        ===================================================== */
+
+        function campoDigitado() {
+
+            const input =
+                document.getElementById("chamado");
+
+            const texto =
+                input.value
+                    .toLowerCase()
+                    .trim();
+
+
+            document.getElementById(
+                "botaoLimpar"
+            ).style.display =
+                texto ? "block" : "none";
+
+
+            if (!texto) {
+
+                esconderSugestoes();
+
+                return;
+
+            }
+
+
+            const solucoes =
+                obterSolucoes();
+
+
+            const resultados =
+                solucoes.filter(solucao => {
+
+                    const conteudo =
+                        (
+                            solucao.nome +
+                            " " +
+                            solucao.categoria +
+                            " " +
+                            solucao.palavras.join(" ")
+                        ).toLowerCase();
+
+                    return conteudo.includes(texto);
+
+                }).slice(0, 5);
+
+
+            mostrarSugestoes(resultados);
+
+        }
+
+
+        function mostrarSugestoes(resultados) {
+
+            const caixa =
+                document.getElementById(
+                    "sugestoes"
+                );
+
+
+            if (resultados.length === 0) {
+
+                esconderSugestoes();
+
+                return;
+
+            }
+
+
+            caixa.innerHTML = "";
+
+
+            resultados.forEach(solucao => {
+
+                const item =
+                    document.createElement("div");
+
+                item.className = "sugestao";
+
+
+                item.innerHTML = `
+
+                    <div class="sugestao-titulo">
+                        🔍 ${solucao.nome}
+                    </div>
+
+                    <div class="sugestao-categoria">
+                        ${solucao.categoria}
+                    </div>
+
+                `;
+
+
+                item.onclick = function() {
+
+                    document
+                        .getElementById("chamado")
+                        .value = solucao.nome;
+
+                    esconderSugestoes();
+
+                    document
+                        .getElementById("botaoLimpar")
+                        .style.display = "block";
+
+                    buscarChamado();
+
+                };
+
+
+                caixa.appendChild(item);
+
+            });
+
+
+            caixa.style.display = "block";
+
+        }
+
+
+        function esconderSugestoes() {
+
+            document.getElementById(
+                "sugestoes"
+            ).style.display = "none";
+
+        }
+
+
+        /* =====================================================
+           BUSCAR
+        ===================================================== */
+
+        function buscarChamado() {
+
+            esconderSugestoes();
+
+
+            const input =
+                document.getElementById("chamado");
+
+
+            const texto =
+                input.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            if (!texto) {
+
+                resultado.style.display = "none";
+
+                return;
+
+            }
+
+
+            registrarPesquisa();
+
+
+            const solucoes =
+                obterSolucoes();
+
+
+            let encontrada = null;
+
+
+            /* Primeiro tenta encontrar correspondência
+               direta */
+
+            encontrada =
+                solucoes.find(solucao => {
+
+                    if (
+                        solucao.nome
+                            .toLowerCase()
+                            .includes(texto)
+                    ) {
+
+                        return true;
+
+                    }
+
+
+                    return solucao.palavras.some(
+                        palavra =>
+                            texto.includes(
+                                palavra.toLowerCase()
+                            ) ||
+                            palavra
+                                .toLowerCase()
+                                .includes(texto)
+                    );
+
+                });
+
+
+            /* Depois tenta verificar se qualquer palavra
+               da busca corresponde */
+
+            if (!encontrada) {
+
+                const palavrasBusca =
+                    texto.split(" ");
+
+
+                encontrada =
+                    solucoes.find(solucao => {
+
+                        return palavrasBusca.some(
+                            palavraBusca => {
+
+                                return solucao.palavras.some(
+                                    palavra =>
+
+                                        palavra
+                                            .toLowerCase()
+                                            .includes(
+                                                palavraBusca
+                                            )
+                                );
+
+                            }
+                        );
+
+                    });
+
+            }
+
+
+            if (encontrada) {
+
+                mostrarResultado(encontrada);
+
+            } else {
+
+                mostrarNaoEncontrado(texto);
+
+            }
+
+
+            atualizarEstatisticas();
+
+
+            resultado.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "nearest"
+
+            });
+
+        }
+
+
+        /* =====================================================
+           MOSTRAR SOLUÇÃO
+        ===================================================== */
+
+        function mostrarResultado(solucao) {
+
+            const resultado =
+                document.getElementById(
+                    "resultado"
+                );
+
+
+            let passosHTML = "";
+
+
+            solucao.passos.forEach(
+                (passo, index) => {
+
+                    passosHTML += `
+
+                        <p>
+                            <strong>
+                                ${index + 1}.
+                            </strong>
+                            ${passo}
+                        </p>
+
+                    `;
+
+                }
+            );
+
+
+            resultado.innerHTML = `
+
+                <h2>
+                    ${iconeCategoria(solucao.categoria)}
+                    ${solucao.nome}
+                </h2>
+
+                <p>
+                    <strong>Categoria:</strong>
+                    ${solucao.categoria}
+                </p>
+
+                <p>
+                    ${solucao.descricao}
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>
+                        🛠️ Passo a passo:
+                    </strong>
+                </p>
+
+                ${passosHTML}
+
+                <div class="avaliacao">
+
+                    <p>
+                        O problema foi resolvido?
+                    </p>
+
+                    <div class="botoes-avaliacao">
+
+                        <button
+                            class="btn-resolvido"
+                            onclick="registrarResolucao(true)"
+                        >
+                            ✅ Sim, resolvido
+                        </button>
+
+                        <button
+                            class="btn-nao-resolvido"
+                            onclick="registrarResolucao(false)"
+                        >
+                            ❌ Não resolveu
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            resultado.style.display = "block";
+
+        }
+
+
+        function mostrarNaoEncontrado(texto) {
+
+            const resultado =
+                document.getElementById(
+                    "resultado"
+                );
+
+
+            resultado.innerHTML = `
+
+                <h2>
+                    ❌ Nenhuma solução encontrada
+                </h2>
+
+                <p>
+                    Não encontramos uma solução para:
+                </p>
+
+                <p>
+                    <strong>
+                        "${texto}"
+                    </strong>
+                </p>
+
+                <p>
+                    Tente utilizar termos como:
+                </p>
+
+                <code>
+                    áudio
+                    VPN
+                    Goto
+                    VBAN
+                    Front End
+                </code>
+
+                <p>
+                    Ou cadastre uma nova solução
+                    utilizando o botão
+                    <strong>➕ Nova solução</strong>.
+                </p>
+
+            `;
+
+
+            resultado.style.display = "block";
+
+        }
+
+
+        function iconeCategoria(categoria) {
+
+            const c =
+                categoria.toLowerCase();
+
+
+            if (c.includes("áudio"))
+                return "🎧";
+
+            if (c.includes("vban"))
+                return "🔊";
+
+            if (c.includes("vpn"))
+                return "🌐";
+
+            if (c.includes("goto"))
+                return "⚙️";
+
+            if (c.includes("front"))
+                return "🖥️";
+
+            if (c.includes("impress"))
+                return "🖨️";
+
+            if (c.includes("windows"))
+                return "💻";
+
+            return "📁";
+
+        }
+
+
+        /* =====================================================
+           CATEGORIA
+        ===================================================== */
+
+        function buscarCategoria(categoria) {
+
+            document.getElementById(
+                "chamado"
+            ).value = categoria;
+
+            document.getElementById(
+                "botaoLimpar"
+            ).style.display = "block";
+
+            buscarChamado();
+
+        }
+
+
+        /* =====================================================
+           ENTER
+        ===================================================== */
+
+        function pressionouEnter(event) {
+
+            if (event.key === "Enter") {
+
+                buscarChamado();
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LIMPAR BUSCA
+        ===================================================== */
+
+        function limparBusca() {
+
+            document.getElementById(
+                "chamado"
+            ).value = "";
+
+            document.getElementById(
+                "resultado"
+            ).style.display = "none";
+
+            document.getElementById(
+                "botaoLimpar"
+            ).style.display = "none";
+
+            esconderSugestoes();
+
+        }
+
+
+        /* =====================================================
+           HISTÓRICO / PESQUISAS
+        ===================================================== */
+
+        function registrarPesquisa() {
+
+            let pesquisas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "pesquisasHelp"
+                    )
+                ) || [];
+
+
+            pesquisas.push({
+
+                texto:
+                    document
+                        .getElementById("chamado")
+                        .value
+                        .trim(),
+
+                data:
+                    new Date().toLocaleTimeString(
+                        "pt-BR",
+                        {
+                            hour: "2-digit",
+                            minute: "2-digit"
+                        }
+                    )
+
+            });
+
+
+            localStorage.setItem(
+
+                "pesquisasHelp",
+
+                JSON.stringify(pesquisas)
+
+            );
+
+
+            mostrarHistorico();
+
+        }
+
+
+        function mostrarHistorico() {
+
+            const lista =
+                document.getElementById(
+                    "listaHistorico"
+                );
+
+
+            let pesquisas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "pesquisasHelp"
+                    )
+                ) || [];
+
+
+            pesquisas =
+                pesquisas.slice(-5).reverse();
+
+
+            lista.innerHTML = "";
+
+
+            if (pesquisas.length === 0) {
+
+                lista.innerHTML = `
+
+                    <div class="sem-historico">
+                        Nenhuma pesquisa recente.
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            pesquisas.forEach(pesquisa => {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "item-historico";
+
+
+                item.innerHTML = `
+
+                    <span class="nome">
+                        🔎 ${pesquisa.texto}
+                    </span>
+
+                    <span class="hora">
+                        ${pesquisa.data}
+                    </span>
+
+                `;
+
+
+                item.onclick = function() {
+
+                    document
+                        .getElementById("chamado")
+                        .value =
+                        pesquisa.texto;
+
+                    document
+                        .getElementById("botaoLimpar")
+                        .style.display =
+                        "block";
+
+                    buscarChamado();
+
+                };
+
+
+                lista.appendChild(item);
+
+            });
+
+        }
+
+
+        function limparHistorico() {
+
+            localStorage.removeItem(
+                "pesquisasHelp"
+            );
+
+            mostrarHistorico();
+
+            atualizarEstatisticas();
+
+        }
+
+
+        /* =====================================================
+           ESTATÍSTICAS
+        ===================================================== */
+
+        function registrarResolucao(resolvido) {
+
+            let estatisticas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "estatisticasHelp"
+                    )
+                ) || {
+
+                    resolvidos: 0,
+
+                    naoResolvidos: 0
+
+                };
+
+
+            if (resolvido) {
+
+                estatisticas.resolvidos++;
+
+            } else {
+
+                estatisticas.naoResolvidos++;
+
+            }
+
+
+            localStorage.setItem(
+
+                "estatisticasHelp",
+
+                JSON.stringify(
+                    estatisticas
+                )
+
+            );
+
+
+            atualizarEstatisticas();
+
+
+            const resultado =
+                document.getElementById(
+                    "resultado"
+                );
+
+
+            if (resolvido) {
+
+                resultado.innerHTML += `
+
+                    <div
+                        style="
+                            margin-top:20px;
+                            padding:15px;
+                            background:#dcfce7;
+                            color:#166534;
+                            border-radius:8px;
+                            text-align:center;
+                            font-weight:bold;
+                        "
+                    >
+                        ✅ Ótimo! Solução registrada
+                        como resolvida.
+                    </div>
+
+                `;
+
+            } else {
+
+                resultado.innerHTML += `
+
+                    <div
+                        style="
+                            margin-top:20px;
+                            padding:15px;
+                            background:#fee2e2;
+                            color:#991b1b;
+                            border-radius:8px;
+                            text-align:center;
+                            font-weight:bold;
+                        "
+                    >
+                        ❌ Chamado marcado como
+                        não resolvido.
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        function atualizarEstatisticas() {
+
+            const solucoes =
+                obterSolucoes();
+
+
+            document.getElementById(
+                "totalSolucoes"
+            ).textContent =
+                solucoes.length;
+
+
+            const pesquisas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "pesquisasHelp"
+                    )
+                ) || [];
+
+
+            document.getElementById(
+                "maisUsados"
+            ).textContent =
+                pesquisas.length;
+
+
+            const estatisticas =
+                JSON.parse(
+                    localStorage.getItem(
+                        "estatisticasHelp"
+                    )
+                ) || {
+
+                    resolvidos: 0,
+
+                    naoResolvidos: 0
+
+                };
+
+
+            const totalAvaliacoes =
+
+                estatisticas.resolvidos +
+
+                estatisticas.naoResolvidos;
+
+
+            let porcentagem = 0;
+
+
+            if (totalAvaliacoes > 0) {
+
+                porcentagem =
+                    Math.round(
+                        (
+                            estatisticas.resolvidos /
+                            totalAvaliacoes
+                        ) * 100
+                    );
+
+            }
+
+
+            document.getElementById(
+                "porcentagemResolvidos"
+            ).textContent =
+                porcentagem + "%";
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        function abrirModal() {
+
+            document.getElementById(
+                "modalFundo"
+            ).style.display = "flex";
+
+        }
+
+
+        function fecharModal() {
+
+            document.getElementById(
+                "modalFundo"
+            ).style.display = "none";
+
+        }
+
+
+        /* =====================================================
+           ADICIONAR PASSO
+        ===================================================== */
+
+        function adicionarPasso() {
+
+            const lista =
+                document.getElementById(
+                    "listaPassos"
+                );
+
+
+            const quantidade =
+                lista.querySelectorAll(
+                    ".passo"
+                ).length;
+
+
+            const passo =
+                document.createElement("div");
+
+
+            passo.className = "passo";
+
+
+            passo.innerHTML = `
+
+                <div class="numero-passo">
+                    ${quantidade + 1}
+                </div>
+
+                <input
+                    type="text"
+                    class="input-passo"
+                    placeholder="Descreva o passo"
+                >
+
+            `;
+
+
+            lista.appendChild(passo);
+
+        }
+
+
+        /* =====================================================
+           SALVAR NOVA SOLUÇÃO
+        ===================================================== */
+
+        function salvarSolucao() {
+
+            const nome =
+                document.getElementById(
+                    "nomeSolucao"
+                ).value.trim();
+
+
+            const categoria =
+                document.getElementById(
+                    "categoriaSolucao"
+                ).value;
+
+
+            const palavras =
+                document.getElementById(
+                    "palavrasSolucao"
+                ).value
+                    .split(",")
+                    .map(p => p.trim())
+                    .filter(p => p !== "");
+
+
+            const descricao =
+                document.getElementById(
+                    "descricaoSolucao"
+                ).value.trim();
+
+
+            const inputsPassos =
+                document.querySelectorAll(
+                    ".input-passo"
+                );
+
+
+            const passos = [];
+
+
+            inputsPassos.forEach(input => {
+
+                const valor =
+                    input.value.trim();
+
+
+                if (valor !== "") {
+
+                    passos.push(valor);
+
+                }
+
+            });
+
+
+            if (!nome) {
+
+                alert(
+                    "Digite o nome da solução."
+                );
+
+                return;
+
+            }
+
+
+            if (!descricao) {
+
+                alert(
+                    "Digite uma descrição."
+                );
+
+                return;
+
+            }
+
+
+            if (passos.length === 0) {
+
+                alert(
+                    "Adicione pelo menos um passo."
+                );
+
+                return;
+
+            }
+
+
+            const novaSolucao = {
+
+                id:
+                    "custom_" +
+                    Date.now(),
+
+                nome: nome,
+
+                categoria: categoria,
+
+                palavras: palavras,
+
+                descricao: descricao,
+
+                passos: passos
+
+            };
+
+
+            let solucoes =
+                JSON.parse(
+                    localStorage.getItem(
+                        "solucoesPersonalizadas"
+                    )
+                ) || [];
+
+
+            solucoes.push(novaSolucao);
+
+
+            localStorage.setItem(
+
+                "solucoesPersonalizadas",
+
+                JSON.stringify(solucoes)
+
+            );
+
+
+            alert(
+                "✅ Solução cadastrada com sucesso!"
+            );
+
+
+            limparFormulario();
+
+            fecharModal();
+
+            atualizarEstatisticas();
+
+        }
+
+
+        /* =====================================================
+           LIMPAR FORMULÁRIO
+        ===================================================== */
+
+        function limparFormulario() {
+
+            document.getElementById(
+                "nomeSolucao"
+            ).value = "";
+
+            document.getElementById(
+                "palavrasSolucao"
+            ).value = "";
+
+            document.getElementById(
+                "descricaoSolucao"
+            ).value = "";
+
+
+            document.getElementById(
+                "listaPassos"
+            ).innerHTML = `
+
+                <div class="passo">
+
+                    <div class="numero-passo">
+                        1
+                    </div>
+
+                    <input
+                        type="text"
+                        class="input-passo"
+                        placeholder="Ex: Verificar serviço"
+                    >
+
+                </div>
+
+                <div class="passo">
+
+                    <div class="numero-passo">
+                        2
+                    </div>
+
+                    <input
+                        type="text"
+                        class="input-passo"
+                        placeholder="Ex: Reiniciar serviço"
+                    >
+
+                </div>
+
+                <div class="passo">
+
+                    <div class="numero-passo">
+                        3
+                    </div>
+
+                    <input
+                        type="text"
+                        class="input-passo"
+                        placeholder="Ex: Fazer teste"
+                    >
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =====================================================
+           FECHAR MODAL CLICANDO FORA
+        ===================================================== */
+
+        document
+            .getElementById("modalFundo")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target === this
+                    ) {
+
+                        fecharModal();
+
+                    }
+
+                }
+            );
+
+
+        /* =====================================================
+           INICIALIZAÇÃO
+        ===================================================== */
+
+        carregarTema();
+
+        mostrarHistorico();
+
+        atualizarEstatisticas();
+
+
+    </script>
+
+
+</body>
+
+</html>
