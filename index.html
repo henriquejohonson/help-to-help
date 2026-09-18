@@ -29,6 +29,114 @@
             overflow-x: hidden;
         }
 
+
+        /* =====================================================
+           TELA DE BOAS-VINDAS
+        ===================================================== */
+
+        .tela-boas-vindas {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #253082 0%,
+                    #080a14 55%,
+                    #05060a 100%
+                );
+
+            color: white;
+
+            transition:
+                opacity 1.5s ease,
+                visibility 1.5s ease;
+        }
+
+        .tela-boas-vindas.ocultar {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .boas-vindas-conteudo {
+            text-align: center;
+            animation: boasVindasEntrada 5s ease forwards;
+        }
+
+        .boas-vindas-logo {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background: linear-gradient(
+                135deg,
+                #1207d4,
+                #4f46e5
+            );
+
+            box-shadow:
+                0 0 35px rgba(79, 70, 229, 0.45),
+                0 15px 40px rgba(0, 0, 0, 0.4);
+
+            font-size: 42px;
+        }
+
+        .boas-vindas-titulo {
+            .boas-vindas-titulo {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #08c718;
+}
+
+        }
+
+        .boas-vindas-subtitulo {
+            font-size: 17px;
+            color: #a5b4fc;
+            margin-bottom: 25px;
+        }
+
+        .boas-vindas-carregando {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .boas-vindas-pontos {
+            display: inline-block;
+            width: 25px;
+            text-align: left;
+        }
+
+        @keyframes boasVindasEntrada {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
         /* =====================================================
            HEADER
         ===================================================== */
@@ -66,15 +174,9 @@
             transition: 0.2s;
         }
 
-        .tema {
-            background-color: #1207d4;
-        }
-
-        .tema:hover {
-            background-color: #1207d4;
-        }
-
-        .botao-admin {
+        .tema,
+        .botao-admin,
+        .botao-codigo {
             background-color: #1207d4;
         }
 
@@ -82,13 +184,10 @@
             background-color: #4338ca;
         }
 
-        .botao-codigo {
-            background-color: #1207d4;
-        }
-
         .botao-codigo:hover {
             background-color: #6d28d9;
         }
+
 
         /* =====================================================
            LETREIRO
@@ -97,15 +196,18 @@
         .letreiro {
             width: 100%;
             overflow: hidden;
+
             background: linear-gradient(
                 90deg,
-                #2417a8,
-                #3730a3,
-                #2417a8
+                #1207d4,
+                #1207d4,
+                #1207d4
             );
+
             color: white;
             padding: 10px 0;
             white-space: nowrap;
+
             box-shadow:
                 0 4px 20px rgba(37, 31, 140, 0.25);
         }
@@ -124,6 +226,7 @@
         }
 
         @keyframes passar {
+
             0% {
                 transform: translateX(0);
             }
@@ -131,7 +234,9 @@
             100% {
                 transform: translateX(-100%);
             }
+
         }
+
 
         /* =====================================================
            MAIN
@@ -150,7 +255,7 @@
 
         .titulo h2 {
             font-size: 30px;
-            color: #111827;
+            color: #1207d4;
             margin-bottom: 8px;
         }
 
@@ -158,6 +263,7 @@
             color: #6b7280;
             font-size: 15px;
         }
+
 
         /* =====================================================
            BUSCA
@@ -178,7 +284,7 @@
         input {
             width: 100%;
             padding: 16px 45px 16px 18px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #1207d4;
             border-radius: 10px;
             font-size: 16px;
             outline: none;
@@ -201,10 +307,6 @@
             cursor: pointer;
         }
 
-        .botao-buscar:hover {
-            background-color: #4338ca;
-        }
-
         .limpar {
             position: absolute;
             right: 12px;
@@ -212,7 +314,7 @@
             transform: translateY(-50%);
             border: none;
             background: transparent;
-            color: #9ca3af;
+            color: #1207d4;
             cursor: pointer;
             display: none;
             font-size: 16px;
@@ -221,6 +323,7 @@
         .limpar:hover {
             color: #ef4444;
         }
+
 
         /* =====================================================
            SUGESTÕES
@@ -245,11 +348,6 @@
             padding: 13px 16px;
             cursor: pointer;
             border-bottom: 1px solid #f1f5f9;
-            transition: 0.15s;
-        }
-
-        .sugestao:last-child {
-            border-bottom: none;
         }
 
         .sugestao:hover {
@@ -267,6 +365,7 @@
             color: #9ca3af;
             margin-top: 3px;
         }
+
 
         /* =====================================================
            CATEGORIAS
@@ -325,6 +424,7 @@
             color: #6b7280;
         }
 
+
         /* =====================================================
            RESULTADO
         ===================================================== */
@@ -342,6 +442,7 @@
         }
 
         @keyframes aparecer {
+
             from {
                 opacity: 0;
                 transform: translateY(10px);
@@ -351,6 +452,7 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
         #resultado h2 {
@@ -361,6 +463,7 @@
         #resultado p {
             margin: 7px 0;
         }
+
 
         /* =====================================================
            SCRIPT
@@ -378,10 +481,6 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
-        }
-
-        .titulo-script strong {
-            font-size: 15px;
         }
 
         .area-script {
@@ -404,17 +503,13 @@
             font-size: 12px;
             font-weight: bold;
             cursor: pointer;
-            white-space: nowrap;
-            transition: 0.2s;
         }
 
-        .botao-copiar:hover {
-            background-color: #4338ca;
-        }
-
-        .botao-copiar.copiado {
+        .botao-copiar.copiado,
+        .botao-copiar-codigo.copiado {
             background-color: #16a34a;
         }
+
 
         /* =====================================================
            AVALIAÇÃO
@@ -456,13 +551,6 @@
             background-color: #dc2626;
         }
 
-        .btn-resolvido:hover {
-            background-color: #15803d;
-        }
-
-        .btn-nao-resolvido:hover {
-            background-color: #b91c1c;
-        }
 
         /* =====================================================
            HISTÓRICO
@@ -508,10 +596,6 @@
             cursor: pointer;
         }
 
-        .item-historico:hover {
-            border-color: #4f46e5;
-        }
-
         .nome {
             font-size: 14px;
         }
@@ -526,6 +610,7 @@
             color: #9ca3af;
             padding: 15px;
         }
+
 
         /* =====================================================
            MODAIS
@@ -576,6 +661,7 @@
             color: #6b7280;
         }
 
+
         /* =====================================================
            CÓDIGOS
         ===================================================== */
@@ -623,15 +709,6 @@
             font-size: 11px;
             font-weight: bold;
             cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .botao-copiar-codigo:hover {
-            background: #6d28d9;
-        }
-
-        .botao-copiar-codigo.copiado {
-            background: #16a34a;
         }
 
         .codigo-completo {
@@ -669,9 +746,6 @@
             cursor: pointer;
         }
 
-        .botao-copiar-completo:hover {
-            background: #4338ca;
-        }
 
         /* =====================================================
            FORMULÁRIO
@@ -763,9 +837,6 @@
             cursor: pointer;
         }
 
-        .botao-salvar:hover {
-            background-color: #15803d;
-        }
 
         /* =====================================================
            FOOTER
@@ -778,6 +849,7 @@
             font-size: 13px;
         }
 
+
         /* =====================================================
            DARK MODE
         ===================================================== */
@@ -785,6 +857,7 @@
         body.dark {
             color: #f9fafb;
             background-color: #080a10;
+
             background-image:
                 radial-gradient(
                     ellipse 70% 60% at 50% 72%,
@@ -799,14 +872,14 @@
                     #0b0d14 0%,
                     #080a10 100%
                 );
+
             background-attachment: fixed;
         }
 
         body.dark header {
             background: rgba(9, 11, 18, 0.72);
-            border-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255,255,255,0.08);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         body.dark header h1 {
@@ -824,19 +897,15 @@
         }
 
         body.dark .card {
-            background: rgba(15, 23, 42, 0.72);
-            border-color: rgba(148, 163, 184, 0.12);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+            background: rgba(15,23,42,0.72);
+            border-color: rgba(148,163,184,0.12);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
 
         body.dark .card:hover {
             border-color: #4f46e5;
-            background: rgba(23, 35, 75, 0.82);
-            box-shadow:
-                0 12px 30px rgba(37, 55, 140, 0.28),
-                0 0 20px rgba(79, 70, 229, 0.12);
+            background: rgba(23,35,75,0.82);
         }
 
         body.dark .card h4 {
@@ -848,43 +917,22 @@
         }
 
         body.dark input {
-            background: rgba(15, 23, 42, 0.82);
+            background: rgba(15,23,42,0.82);
             color: #f8fafc;
-            border-color: rgba(148, 163, 184, 0.15);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: rgba(148,163,184,0.15);
         }
 
         body.dark input::placeholder {
             color: #64748b;
         }
 
-        body.dark input:focus {
-            border-color: #6366f1;
-            box-shadow:
-                0 0 0 3px rgba(99, 102, 241, 0.15),
-                0 0 25px rgba(59, 80, 180, 0.12);
-        }
-
-        body.dark .botao-buscar {
-            background: linear-gradient(
-                135deg,
-                #4f46e5,
-                #3730a3
-            );
-        }
-
         body.dark .sugestoes {
-            background: rgba(15, 23, 42, 0.95);
-            border-color: rgba(148, 163, 184, 0.15);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        body.dark .sugestao {
-            border-color: rgba(148, 163, 184, 0.08);
+            background: rgba(15,23,42,0.95);
+            border-color: rgba(148,163,184,0.15);
         }
 
         body.dark .sugestao:hover {
-            background: rgba(79, 70, 229, 0.12);
+            background: rgba(79,70,229,0.12);
         }
 
         body.dark .sugestao-titulo {
@@ -892,9 +940,8 @@
         }
 
         body.dark #resultado {
-            background: rgba(15, 23, 42, 0.82);
-            border-color: rgba(148, 163, 184, 0.12);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
+            background: rgba(15,23,42,0.82);
+            border-color: rgba(148,163,184,0.12);
         }
 
         body.dark #resultado h2 {
@@ -902,20 +949,15 @@
         }
 
         body.dark .area-script {
-            background: rgba(8, 15, 29, 0.85);
-            border-color: rgba(148, 163, 184, 0.12);
+            background: rgba(8,15,29,0.85);
+            border-color: rgba(148,163,184,0.12);
             color: #e2e8f0;
         }
 
         body.dark .item-historico {
-            background: rgba(15, 23, 42, 0.72);
-            border-color: rgba(148, 163, 184, 0.12);
+            background: rgba(15,23,42,0.72);
+            border-color: rgba(148,163,184,0.12);
             color: #f8fafc;
-        }
-
-        body.dark .item-historico:hover {
-            border-color: #4f46e5;
-            background: rgba(23, 35, 75, 0.78);
         }
 
         body.dark .nome {
@@ -936,8 +978,7 @@
 
         body.dark .modal {
             background: #0f172a;
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(148,163,184,0.12);
         }
 
         body.dark .modal-cabecalho h2 {
@@ -956,25 +997,13 @@
             border-color: #1e293b;
         }
 
-        body.dark .ajuda-script {
-            color: #64748b;
-        }
-
         body.dark .codigo-item {
-            background: rgba(15, 23, 42, 0.75);
-            border-color: rgba(148, 163, 184, 0.12);
+            background: rgba(15,23,42,0.75);
+            border-color: rgba(148,163,184,0.12);
         }
 
         body.dark .codigo-texto {
             color: #e2e8f0;
-        }
-
-        body.dark .codigo-completo {
-            border-color: rgba(148, 163, 184, 0.12);
-        }
-
-        body.dark .codigo-completo h3 {
-            color: #f8fafc;
         }
 
         body.dark .texto-codigo-completo {
@@ -986,6 +1015,7 @@
         body.dark footer {
             color: #64748b;
         }
+
 
         /* =====================================================
            RESPONSIVIDADE
@@ -1077,13 +1107,66 @@
                 width: 100%;
             }
 
+            .boas-vindas-titulo {
+                font-size: 27px;
+            }
+
+            .boas-vindas-subtitulo {
+                font-size: 14px;
+            }
+
+            .boas-vindas-logo {
+                width: 75px;
+                height: 75px;
+                font-size: 34px;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+    <!-- =====================================================
+         TELA DE BOAS-VINDAS
+    ===================================================== -->
+
+    <div
+        class="tela-boas-vindas"
+        id="telaBoasVindas"
+    >
+
+        <div class="boas-vindas-conteudo">
+
+            <div class="boas-vindas-logo">
+                🛠️
+            </div>
+
+            <div class="boas-vindas-titulo">
+                WELCOME - HELP TO HELP
+            </div>
+
+            <div class="boas-vindas-carregando">
+
+                Preparando seu ambiente
+
+                <span
+                    class="boas-vindas-pontos"
+                    id="pontosBoasVindas"
+                >
+                    ...
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <!-- =====================================================
          HEADER
@@ -1103,8 +1186,6 @@
             >
                 ➕ Nova solução
             </button>
-
-            <!-- NOVO BOTÃO CÓDIGO -->
 
             <button
                 class="botao-codigo"
@@ -1134,11 +1215,7 @@
 
         <div class="letreiro-conteudo">
 
-            Possíveis erros
-
-            <span class="separador">•</span>
-
-            Áudio
+            Chamados cadastrados:
 
             <span class="separador">•</span>
 
@@ -1190,7 +1267,7 @@
         <section class="titulo">
 
             <h2>
-                Central de Suporte Técnico
+                Central de Resolução.
             </h2>
 
             <p></p>
@@ -1269,7 +1346,6 @@
                 <span>Problemas de áudio</span>
             </div>
 
-
             <div
                 class="card"
                 onclick="buscarCategoria('vpn')"
@@ -1278,7 +1354,6 @@
                 <h4>VPN</h4>
                 <span>Problemas de conexão</span>
             </div>
-
 
             <div
                 class="card"
@@ -1289,7 +1364,6 @@
                 <span>Erros WMI</span>
             </div>
 
-
             <div
                 class="card"
                 onclick="buscarCategoria('vban')"
@@ -1298,7 +1372,6 @@
                 <h4>VBAN</h4>
                 <span>Áudio mudo</span>
             </div>
-
 
             <div
                 class="card"
@@ -1350,6 +1423,11 @@
         <p>
             Help to Help • Central de Suporte Técnico
         </p>
+    <footer>
+
+        <p>
+            Help to Help • Central de Suporte Técnico
+        </p>
 
         <p>
             L.H.J
@@ -1358,1747 +1436,87 @@
     </footer>
 
 
-    <!-- =====================================================
-         MODAL NOVA SOLUÇÃO
-    ===================================================== -->
+<!-- =====================================================
+     MODAL - NOVA SOLUÇÃO
+===================================================== -->
 
-    <div
-        class="modal-fundo"
-        id="modalFundo"
-    >
+<div
+    class="modal-fundo"
+    id="modalFundo"
+>
 
-        <div class="modal">
+    <div class="modal">
 
-            <div class="modal-cabecalho">
+        <div class="modal-cabecalho">
 
-                <h2>
-                    📝 Cadastrar nova solução
-                </h2>
-
-                <button
-                    class="fechar"
-                    onclick="fecharModal()"
-                >
-                    ✕
-                </button>
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    Nome da solução
-                </label>
-
-                <input
-                    type="text"
-                    id="nomeSolucao"
-                    placeholder="Ex: VPN não conecta"
-                >
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    Categoria
-                </label>
-
-                <select id="categoriaSolucao">
-
-                    <option value="Áudio">
-                        🎧 Áudio
-                    </option>
-
-                    <option value="VPN">
-                        🌐 VPN
-                    </option>
-
-                    <option value="Goto">
-                        ⚙️ Goto
-                    </option>
-
-                    <option value="VBAN">
-                        🔊 VBAN
-                    </option>
-
-                    <option value="Front-End">
-                        🖥️ Front-End
-                    </option>
-
-                    <option value="Impressora">
-                        🖨️ Impressora
-                    </option>
-
-                    <option value="Windows">
-                        💻 Windows
-                    </option>
-
-                    <option value="Outros">
-                        📁 Outros
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    Palavras-chave
-                </label>
-
-                <input
-                    type="text"
-                    id="palavrasSolucao"
-                    placeholder="vpn, openvpn, conexão, conectar"
-                >
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    Descrição
-                </label>
-
-                <textarea
-                    id="descricaoSolucao"
-                    placeholder="Descreva o problema e a solução..."
-                ></textarea>
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    Passos para solução
-                </label>
-
-                <div
-                    class="passos"
-                    id="listaPassos"
-                >
-
-                    <div class="passo">
-
-                        <div class="numero-passo">
-                            1
-                        </div>
-
-                        <input
-                            type="text"
-                            class="input-passo"
-                            placeholder="Ex: Verificar serviço"
-                        >
-
-                    </div>
-
-
-                    <div class="passo">
-
-                        <div class="numero-passo">
-                            2
-                        </div>
-
-                        <input
-                            type="text"
-                            class="input-passo"
-                            placeholder="Ex: Reiniciar serviço"
-                        >
-
-                    </div>
-
-
-                    <div class="passo">
-
-                        <div class="numero-passo">
-                            3
-                        </div>
-
-                        <input
-                            type="text"
-                            class="input-passo"
-                            placeholder="Ex: Fazer teste"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="botao-adicionar-passo"
-                    onclick="adicionarPasso()"
-                >
-                    ➕ Adicionar outro passo
-                </button>
-
-            </div>
-
-
-            <div class="campo-form">
-
-                <label>
-                    📝 Script de encerramento
-                </label>
-
-                <textarea
-                    id="scriptSolucao"
-                    class="campo-script"
-                    placeholder="Ex: Usuário relatou problema..."
-                ></textarea>
-
-                <div class="ajuda-script">
-                    Esse texto aparecerá para o técnico copiar e colar no encerramento do chamado.
-                </div>
-
-            </div>
-
+            <h2>
+                ➕ Nova solução
+            </h2>
 
             <button
-                class="botao-salvar"
-                onclick="salvarSolucao()"
+                class="fechar"
+                onclick="fecharModal()"
             >
-                💾 Salvar solução
+                ✕
             </button>
 
         </div>
 
-    </div>
 
+        <div class="campo-form">
 
-    <!-- =====================================================
-         NOVO MODAL DE CÓDIGOS
-    ===================================================== -->
+            <label for="novaCategoria">
+                Categoria
+            </label>
 
-    <div
-        class="modal-fundo"
-        id="modalCodigos"
-    >
-
-        <div class="modal modal-codigos">
-
-            <div class="modal-cabecalho">
-
-                <h2>
-                    📋 Códigos
-                </h2>
-
-                <button
-                    class="fechar"
-                    onclick="fecharModalCodigos()"
-                >
-                    ✕
-                </button>
-
-            </div>
-
-
-            <div
-                class="lista-codigos"
-                id="listaCodigos"
-            ></div>
-
-
-            <div class="codigo-completo">
-
-                <h3>
-                    📝 Texto completo
-                </h3>
-
-                <div
-                    class="texto-codigo-completo"
-                    id="textoCodigoCompleto"
-                ></div>
-
-                <button
-                    class="botao-copiar-completo"
-                    id="botaoCopiarCompleto"
-                    onclick="copiarTodosCodigos()"
-                >
-                    📋 Copiar texto completo
-                </button>
-
-            </div>
+            <input
+                type="text"
+                id="novaCategoria"
+                placeholder="Ex.: Impressora"
+            >
 
         </div>
 
-    </div>
 
+        <div class="campo-form">
 
-    <script>
+            <label for="novoTitulo">
+                Título do chamado
+            </label>
 
-        /* =====================================================
-           BANCO DE SOLUÇÕES
-        ===================================================== */
+            <input
+                type="text"
+                id="novoTitulo"
+                placeholder="Ex.: Impressora não imprime"
+            >
 
-        const solucoesPadrao = [
+        </div>
 
-            {
-                id: "audio",
-                nome: "Áudio mudo VBAN",
-                categoria: "Áudio",
 
-                palavras: [
-                    "audio",
-                    "áudio",
-                    "mudo",
-                    "som",
-                    "vban"
-                ],
+        <div class="campo-form">
 
-                descricao:
-                    "Procedimento para solucionar problemas de áudio mudo através do VBAN.",
+            <label for="novaDescricao">
+                Descrição
+            </label>
 
-                passos: [
-                    "Reiniciar a máquina virtual.",
-                    "Verificar o firewall. Caso esteja ativado, desabilitar.",
-                    "Fazer o teste de áudio no VoiceMeeter. Caso o colaborador consiga se ouvir, significa que está tudo certo."
-                ],
+            <textarea
+                id="novaDescricao"
+                placeholder="Descreva o problema..."
+            ></textarea>
 
-                script:
-                    "Usuário relatou problema de áudio. Foram realizados os procedimentos de validação do VBAN, firewall e teste no VoiceMeeter. Após os testes, o áudio foi validado e o problema solucionado."
-            },
+        </div>
 
 
-            {
-                id: "goto",
-                nome: "Erro Goto / WMI",
-                categoria: "Goto",
+        <div class="campo-form">
 
-                palavras: [
-                    "goto",
-                    "wmic",
-                    "wmi",
-                    "os alias",
-                    "alias"
-                ],
+            <label>
+                Passos para solução
+            </label>
 
-                descricao:
-                    "Procedimento para solucionar erro de Goto relacionado ao WMI.",
-
-                passos: [
-                    "Execute: winmgmt /verifyrepository",
-                    "Se o resultado estiver inconsistente, execute: winmgmt /salvagerepository",
-                    "Execute novamente: winmgmt /verifyrepository",
-                    "Teste: wmic OS get OSArchitecture",
-                    "Caso continue apresentando erro, pare o serviço winmgmt com: net stop winmgmt",
-                    "Renomeie a pasta C:\\Windows\\System32\\wbem\\repository",
-                    "Execute: net start winmgmt",
-                    "Abra o CMD como Administrador.",
-                    "Execute: cd C:\\Windows\\System32\\wbem\\",
-                    "Execute: for /f %s in ('dir /b *.mof') do mofcomp %s",
-                    "Execute: for /f %s in ('dir /b en-us\\*.mfl') do mofcomp en-us\\%s",
-                    "Teste novamente: wmic OS get OSArchitecture"
-                ],
-
-                script:
-                    "Usuário apresentou erro relacionado ao Goto/WMI. Foram realizados os procedimentos de validação e reparo do repositório WMI, seguidos dos testes de funcionamento. Após os procedimentos, o acesso foi validado."
-            },
-
-
-            {
-                id: "vban",
-                nome: "Áudio VBAN",
-                categoria: "VBAN",
-
-                palavras: [
-                    "vban",
-                    "áudio vban",
-                    "audio vban"
-                ],
-
-                descricao:
-                    "Procedimento para verificar problemas relacionados ao áudio VBAN.",
-
-                passos: [
-                    "Reiniciar a máquina virtual.",
-                    "Verificar o firewall.",
-                    "Realizar teste de áudio no VoiceMeeter.",
-                    "Confirmar se o colaborador consegue se ouvir."
-                ],
-
-                script:
-                    "Usuário relatou problema relacionado ao áudio VBAN. Foram realizados os testes de firewall, VoiceMeeter e comunicação de áudio. Após os procedimentos, o funcionamento foi normalizado."
-            },
-
-
-            {
-                id: "frontend",
-                nome: "Problema Front-End",
-                categoria: "Front-End",
-
-                palavras: [
-                    "front",
-                    "frontend",
-                    "front end",
-                    "java",
-                    "edge"
-                ],
-
-                descricao:
-                    "Procedimento para liberar o acesso ao Front-End através do Microsoft Edge.",
-
-                passos: [
-                    "Abra o navegador Edge.",
-                    "Acesse Configurações.",
-                    "Entre em Navegador padrão.",
-                    "Localize a opção Permitir.",
-                    "Adicione uma Página e cole a URL do Front-End.",
-                    "Aceite a tela do Java.",
-                    "Copie e cole a URL novamente."
-                ],
-
-                script:
-                    "Usuário apresentou problema de acesso ao Front-End. Foram realizados os ajustes necessários no navegador Microsoft Edge e validação das permissões do Java. Após os procedimentos, o acesso ao Front-End foi normalizado."
-            },
-
-
-            {
-                id: "vpn",
-                nome: "Erro VPN / OpenVPN",
-                categoria: "VPN",
-
-                palavras: [
-                    "vpn",
-                    "openvpn",
-                    "conexão vpn",
-                    "conectar vpn",
-                    "vpn não conecta",
-                    "vpn nao conecta"
-                ],
-
-                descricao:
-                    "Procedimento para verificar serviços relacionados à OpenVPN.",
-
-                passos: [
-                    "Pressione Win + R.",
-                    "Digite: services.msc",
-                    "Localize os serviços relacionados à OpenVPN.",
-                    "Verifique se os serviços estão em execução.",
-                    "Caso algum esteja parado, clique com o botão direito e selecione Iniciar.",
-                    "Caso o serviço já esteja em execução, selecione Reiniciar.",
-                    "Tente conectar a VPN novamente."
-                ],
-
-                script:
-                    "Caros, Bom dia. Foram realizados os procedimentos de validação dos serviços relacionados à OpenVPN e reinicialização dos serviços quando necessário. Após os testes, a conexão VPN foi restabelecida e validada com sucesso."
-            }
-
-        ];
-
-
-        /* =====================================================
-           BANCO DE CÓDIGOS
-        ===================================================== */
-
-        const codigos = [
-
-            {
-                codigo: "Código #01#",
-                texto: 'Atuar propositalmente no sistema de trabalho para causar sua indisponibilidade.'
-            },
-
-            {
-                codigo: "Código #002#",
-                texto: "Simulação de falha de áudio."
-            },
-
-            {
-                codigo: "Código #003#",
-                texto: "Remoção ou desinstalação do Sistema Home Based TMKT."
-            },
-
-            {
-                codigo: "Código #004#",
-                texto: "Causar desconexão (remoção de cabo de rede, persiste em manter conectado no Wi-Fi, entre outros)."
-            },
-
-            {
-                codigo: "Código #005#",
-                texto: "Resistência Resolução do Problema"
-            },
-
-            {
-                codigo: "Código #006#",
-                texto: "Não realizou procedimento de teste de áudio"
-            },
-
-            {
-                codigo: "Código #007#",
-                texto: "Atividade Indevida durante expediente"
-            },
-
-            {
-                codigo: "Código #008#",
-                texto: "Resistência Resolução do Problema."
-            }
-
-        ];
-
-
-        const textoCodigoFinal = `Código #01# – "Atuar propositalmente no sistema de trabalho para causar sua indisponibilidade".
-Código #002# – Simulação de falha de áudio.
-Código #003# – Remoção ou desinstalação do Sistema Home Based TMKT.
-Código #004# - Causar desconexão (remoção de cabo de rede, persiste em manter conectado no Wi-Fi, entre outros).
-Código #005# - Resistência Resolução do Problema
-Código #006# - Não realizou procedimento de teste de áudio
-Código #007# - Atividade Indevida durante expediente
-Código #008# - Resistência Resolução do Problema.
-
-Realizamos todos os testes possiveis para tentar solucionar o problema, troca de head, teste de audio, validação com Porcessos, N2, Desenvolvimento, testamos a matricula na operação e funcionou normalmente, nesse caso orientamos a colaboradora a realizar a formatação da maquina porém a mesma apresenta rispidez e resistência para solucionar o problema.`;
-
-
-        /* =====================================================
-           SOLUÇÕES
-        ===================================================== */
-
-        function obterSolucoes() {
-
-            const personalizadas =
-                JSON.parse(
-                    localStorage.getItem(
-                        "solucoesPersonalizadas"
-                    )
-                ) || [];
-
-            return [
-                ...solucoesPadrao,
-                ...personalizadas
-            ];
-        }
-
-
-        /* =====================================================
-           TEMA
-        ===================================================== */
-
-        function alternarTema() {
-
-            document.body.classList.toggle("dark");
-
-            const botao =
-                document.getElementById("botaoTema");
-
-            if (
-                document.body.classList.contains("dark")
-            ) {
-
-                botao.innerHTML = "☀️ Light";
-
-                localStorage.setItem(
-                    "tema",
-                    "dark"
-                );
-
-            } else {
-
-                botao.innerHTML = "🌙 Dark";
-
-                localStorage.setItem(
-                    "tema",
-                    "light"
-                );
-            }
-        }
-
-
-        function carregarTema() {
-
-            const tema =
-                localStorage.getItem("tema");
-
-            if (tema === "dark") {
-
-                document.body.classList.add("dark");
-
-                document.getElementById(
-                    "botaoTema"
-                ).innerHTML = "☀️ Light";
-            }
-        }
-
-
-        /* =====================================================
-           BUSCA INTELIGENTE
-        ===================================================== */
-
-        function campoDigitado() {
-
-            const input =
-                document.getElementById("chamado");
-
-            const texto =
-                input.value
-                    .toLowerCase()
-                    .trim();
-
-            document.getElementById(
-                "botaoLimpar"
-            ).style.display =
-                texto ? "block" : "none";
-
-            if (!texto) {
-
-                esconderSugestoes();
-
-                return;
-            }
-
-            const solucoes =
-                obterSolucoes();
-
-            const resultados =
-                solucoes.filter(solucao => {
-
-                    const conteudo =
-                        (
-                            solucao.nome +
-                            " " +
-                            solucao.categoria +
-                            " " +
-                            solucao.palavras.join(" ")
-                        ).toLowerCase();
-
-                    return conteudo.includes(texto);
-
-                }).slice(0, 5);
-
-            mostrarSugestoes(resultados);
-        }
-
-
-        function mostrarSugestoes(resultados) {
-
-            const caixa =
-                document.getElementById(
-                    "sugestoes"
-                );
-
-            if (resultados.length === 0) {
-
-                esconderSugestoes();
-
-                return;
-            }
-
-            caixa.innerHTML = "";
-
-            resultados.forEach(solucao => {
-
-                const item =
-                    document.createElement("div");
-
-                item.className = "sugestao";
-
-                item.innerHTML = `
-
-                    <div class="sugestao-titulo">
-                        ${iconeCategoria(solucao.categoria)}
-                        ${solucao.nome}
-                    </div>
-
-                    <div class="sugestao-categoria">
-                        ${solucao.categoria}
-                    </div>
-
-                `;
-
-                item.onclick = function() {
-
-                    document
-                        .getElementById("chamado")
-                        .value =
-                        solucao.nome;
-
-                    esconderSugestoes();
-
-                    document
-                        .getElementById("botaoLimpar")
-                        .style.display =
-                        "block";
-
-                    buscarChamado();
-                };
-
-                caixa.appendChild(item);
-
-            });
-
-            caixa.style.display = "block";
-        }
-
-
-        function esconderSugestoes() {
-
-            document.getElementById(
-                "sugestoes"
-            ).style.display = "none";
-        }
-
-
-        /* =====================================================
-           BUSCAR
-        ===================================================== */
-
-        function buscarChamado() {
-
-            esconderSugestoes();
-
-            const input =
-                document.getElementById("chamado");
-
-            const texto =
-                input.value
-                    .toLowerCase()
-                    .trim();
-
-            const resultado =
-                document.getElementById("resultado");
-
-            if (!texto) {
-
-                resultado.style.display = "none";
-
-                return;
-            }
-
-            registrarPesquisa();
-
-            const solucoes =
-                obterSolucoes();
-
-            let encontrada = null;
-
-
-            encontrada =
-                solucoes.find(solucao => {
-
-                    if (
-                        solucao.nome
-                            .toLowerCase()
-                            .includes(texto)
-                    ) {
-
-                        return true;
-                    }
-
-                    return solucao.palavras.some(
-                        palavra =>
-                            texto.includes(
-                                palavra.toLowerCase()
-                            ) ||
-                            palavra
-                                .toLowerCase()
-                                .includes(texto)
-                    );
-                });
-
-
-            if (!encontrada) {
-
-                const palavrasBusca =
-                    texto.split(" ");
-
-                encontrada =
-                    solucoes.find(solucao => {
-
-                        return palavrasBusca.some(
-                            palavraBusca => {
-
-                                return solucao.palavras.some(
-                                    palavra =>
-                                        palavra
-                                            .toLowerCase()
-                                            .includes(
-                                                palavraBusca
-                                            )
-                                );
-
-                            }
-                        );
-
-                    });
-            }
-
-
-            if (encontrada) {
-
-                mostrarResultado(encontrada);
-
-            } else {
-
-                mostrarNaoEncontrado(texto);
-            }
-
-            atualizarEstatisticas();
-
-            resultado.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest"
-            });
-        }
-
-
-        /* =====================================================
-           MOSTRAR SOLUÇÃO
-        ===================================================== */
-
-        function mostrarResultado(solucao) {
-
-            const resultado =
-                document.getElementById(
-                    "resultado"
-                );
-
-            let passosHTML = "";
-
-            solucao.passos.forEach(
-                (passo, index) => {
-
-                    passosHTML += `
-
-                        <p>
-                            <strong>
-                                ${index + 1}.
-                            </strong>
-                            ${passo}
-                        </p>
-
-                    `;
-                }
-            );
-
-
-            const script =
-                solucao.script ||
-                "Nenhum script de encerramento cadastrado para esta solução.";
-
-
-            resultado.innerHTML = `
-
-                <h2>
-                    ${iconeCategoria(solucao.categoria)}
-                    ${solucao.nome}
-                </h2>
-
-                <p>
-                    <strong>Categoria:</strong>
-                    ${solucao.categoria}
-                </p>
-
-                <p>
-                    ${solucao.descricao}
-                </p>
-
-                <br>
-
-                <p>
-                    <strong>
-                        🛠️ Passo a passo:
-                    </strong>
-                </p>
-
-                ${passosHTML}
-
-
-                <div class="bloco-script">
-
-                    <div class="titulo-script">
-
-                        <strong>
-                            📝 Script de encerramento
-                        </strong>
-
-                        <button
-                            class="botao-copiar"
-                            id="botaoCopiarScript"
-                            onclick="copiarScript()"
-                        >
-                            📋 Copiar script
-                        </button>
-
-                    </div>
-
-
-                    <div
-                        class="area-script"
-                        id="textoScript"
-                    >${script}</div>
-
-                </div>
-
-
-                <div class="avaliacao">
-
-                    <p>
-                        O problema foi resolvido?
-                    </p>
-
-                    <div class="botoes-avaliacao">
-
-                        <button
-                            class="btn-resolvido"
-                            onclick="registrarResolucao(true)"
-                        >
-                            ✅ Sim, resolvido
-                        </button>
-
-                        <button
-                            class="btn-nao-resolvido"
-                            onclick="registrarResolucao(false)"
-                        >
-                            ❌ Não resolveu
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-            resultado.style.display = "block";
-        }
-
-
-        /* =====================================================
-           COPIAR SCRIPT
-        ===================================================== */
-
-        async function copiarScript() {
-
-            const texto =
-                document.getElementById(
-                    "textoScript"
-                ).innerText;
-
-            const botao =
-                document.getElementById(
-                    "botaoCopiarScript"
-                );
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    texto
-                );
-
-                botao.innerHTML =
-                    "✅ Script copiado!";
-
-                botao.classList.add("copiado");
-
-                setTimeout(() => {
-
-                    botao.innerHTML =
-                        "📋 Copiar script";
-
-                    botao.classList.remove(
-                        "copiado"
-                    );
-
-                }, 2000);
-
-            } catch (erro) {
-
-                const area =
-                    document.createElement(
-                        "textarea"
-                    );
-
-                area.value = texto;
-
-                document.body.appendChild(area);
-
-                area.select();
-
-                document.execCommand("copy");
-
-                area.remove();
-
-                botao.innerHTML =
-                    "✅ Script copiado!";
-
-                botao.classList.add("copiado");
-
-                setTimeout(() => {
-
-                    botao.innerHTML =
-                        "📋 Copiar script";
-
-                    botao.classList.remove(
-                        "copiado"
-                    );
-
-                }, 2000);
-            }
-        }
-
-
-        /* =====================================================
-           NÃO ENCONTRADO
-        ===================================================== */
-
-        function mostrarNaoEncontrado(texto) {
-
-            const resultado =
-                document.getElementById(
-                    "resultado"
-                );
-
-            resultado.innerHTML = `
-
-                <h2>
-                    ❌ Nenhuma solução encontrada
-                </h2>
-
-                <p>
-                    Não encontramos uma solução para:
-                </p>
-
-                <p>
-                    <strong>
-                        "${texto}"
-                    </strong>
-                </p>
-
-                <p>
-                    Tente utilizar termos como:
-                </p>
-
-                <code>
-                    áudio
-                    VPN
-                    Goto
-                    VBAN
-                    Front End
-                </code>
-
-                <p>
-                    Ou cadastre uma nova solução
-                    utilizando o botão
-                    <strong>➕ Nova solução</strong>.
-                </p>
-
-            `;
-
-            resultado.style.display = "block";
-        }
-
-
-        /* =====================================================
-           ÍCONE
-        ===================================================== */
-
-        function iconeCategoria(categoria) {
-
-            const c =
-                categoria.toLowerCase();
-
-            if (c.includes("áudio"))
-                return "🎧";
-
-            if (c.includes("vban"))
-                return "🔊";
-
-            if (c.includes("vpn"))
-                return "🌐";
-
-            if (c.includes("goto"))
-                return "⚙️";
-
-            if (c.includes("front"))
-                return "🖥️";
-
-            if (c.includes("impress"))
-                return "🖨️";
-
-            if (c.includes("windows"))
-                return "💻";
-
-            return "📁";
-        }
-
-
-        /* =====================================================
-           CATEGORIA
-        ===================================================== */
-
-        function buscarCategoria(categoria) {
-
-            document.getElementById(
-                "chamado"
-            ).value = categoria;
-
-            document.getElementById(
-                "botaoLimpar"
-            ).style.display = "block";
-
-            buscarChamado();
-        }
-
-
-        /* =====================================================
-           ENTER
-        ===================================================== */
-
-        function pressionouEnter(event) {
-
-            if (event.key === "Enter") {
-
-                buscarChamado();
-            }
-        }
-
-
-        /* =====================================================
-           LIMPAR BUSCA
-        ===================================================== */
-
-        function limparBusca() {
-
-            document.getElementById(
-                "chamado"
-            ).value = "";
-
-            document.getElementById(
-                "resultado"
-            ).style.display = "none";
-
-            document.getElementById(
-                "botaoLimpar"
-            ).style.display = "none";
-
-            esconderSugestoes();
-        }
-
-
-        /* =====================================================
-           HISTÓRICO
-        ===================================================== */
-
-        function registrarPesquisa() {
-
-            let pesquisas =
-                JSON.parse(
-                    localStorage.getItem(
-                        "pesquisasHelp"
-                    )
-                ) || [];
-
-            pesquisas.push({
-
-                texto:
-                    document
-                        .getElementById("chamado")
-                        .value
-                        .trim(),
-
-                data:
-                    new Date().toLocaleTimeString(
-                        "pt-BR",
-                        {
-                            hour: "2-digit",
-                            minute: "2-digit"
-                        }
-                    )
-
-            });
-
-            localStorage.setItem(
-                "pesquisasHelp",
-                JSON.stringify(pesquisas)
-            );
-
-            mostrarHistorico();
-        }
-
-
-        function mostrarHistorico() {
-
-            const lista =
-                document.getElementById(
-                    "listaHistorico"
-                );
-
-            let pesquisas =
-                JSON.parse(
-                    localStorage.getItem(
-                        "pesquisasHelp"
-                    )
-                ) || [];
-
-            pesquisas =
-                pesquisas.slice(-5).reverse();
-
-            lista.innerHTML = "";
-
-            if (pesquisas.length === 0) {
-
-                lista.innerHTML = `
-
-                    <div class="sem-historico">
-                        Nenhuma pesquisa recente.
-                    </div>
-
-                `;
-
-                return;
-            }
-
-            pesquisas.forEach(pesquisa => {
-
-                const item =
-                    document.createElement("div");
-
-                item.className =
-                    "item-historico";
-
-                item.innerHTML = `
-
-                    <span class="nome">
-                        🔎 ${pesquisa.texto}
-                    </span>
-
-                    <span class="hora">
-                        ${pesquisa.data}
-                    </span>
-
-                `;
-
-                item.onclick = function() {
-
-                    document
-                        .getElementById("chamado")
-                        .value =
-                        pesquisa.texto;
-
-                    document
-                        .getElementById("botaoLimpar")
-                        .style.display =
-                        "block";
-
-                    buscarChamado();
-                };
-
-                lista.appendChild(item);
-
-            });
-        }
-
-
-        function limparHistorico() {
-
-            localStorage.removeItem(
-                "pesquisasHelp"
-            );
-
-            mostrarHistorico();
-
-            atualizarEstatisticas();
-        }
-
-
-        /* =====================================================
-           ESTATÍSTICAS
-        ===================================================== */
-
-        function registrarResolucao(resolvido) {
-
-            let estatisticas =
-                JSON.parse(
-                    localStorage.getItem(
-                        "estatisticasHelp"
-                    )
-                ) || {
-
-                    resolvidos: 0,
-
-                    naoResolvidos: 0
-                };
-
-
-            if (resolvido) {
-
-                estatisticas.resolvidos++;
-
-            } else {
-
-                estatisticas.naoResolvidos++;
-            }
-
-
-            localStorage.setItem(
-                "estatisticasHelp",
-                JSON.stringify(estatisticas)
-            );
-
-
-            atualizarEstatisticas();
-
-
-            const resultado =
-                document.getElementById(
-                    "resultado"
-                );
-
-
-            if (resolvido) {
-
-                resultado.innerHTML += `
-
-                    <div
-                        style="
-                            margin-top:20px;
-                            padding:15px;
-                            background:#dcfce7;
-                            color:#166534;
-                            border-radius:8px;
-                            text-align:center;
-                            font-weight:bold;
-                        "
-                    >
-                        ✅ Ótimo! Solução registrada
-                        como resolvida.
-                    </div>
-
-                `;
-
-            } else {
-
-                resultado.innerHTML += `
-
-                    <div
-                        style="
-                            margin-top:20px;
-                            padding:15px;
-                            background:#fee2e2;
-                            color:#991b1b;
-                            border-radius:8px;
-                            text-align:center;
-                            font-weight:bold;
-                        "
-                    >
-                        ❌ Chamado marcado como
-                        não resolvido.
-                    </div>
-
-                `;
-            }
-        }
-
-
-        /* =====================================================
-           MODAL NOVA SOLUÇÃO
-        ===================================================== */
-
-        function abrirModal() {
-
-            document.getElementById(
-                "modalFundo"
-            ).style.display = "flex";
-        }
-
-
-        function fecharModal() {
-
-            document.getElementById(
-                "modalFundo"
-            ).style.display = "none";
-        }
-
-
-        /* =====================================================
-           MODAL CÓDIGOS
-        ===================================================== */
-
-        function abrirModalCodigos() {
-
-            const lista =
-                document.getElementById(
-                    "listaCodigos"
-                );
-
-            lista.innerHTML = "";
-
-            codigos.forEach((item, index) => {
-
-                const div =
-                    document.createElement("div");
-
-                div.className = "codigo-item";
-
-                div.innerHTML = `
-
-                    <div class="codigo-topo">
-
-                        <span class="codigo-numero">
-                            ${item.codigo}
-                        </span>
-
-                        <button
-                            class="botao-copiar-codigo"
-                            onclick="copiarCodigo(${index}, this)"
-                        >
-                            📋 Copiar
-                        </button>
-
-                    </div>
-
-                    <div class="codigo-texto">
-                        ${item.texto}
-                    </div>
-
-                `;
-
-                lista.appendChild(div);
-
-            });
-
-
-            document.getElementById(
-                "textoCodigoCompleto"
-            ).textContent = textoCodigoFinal;
-
-
-            document.getElementById(
-                "modalCodigos"
-            ).style.display = "flex";
-        }
-
-
-        function fecharModalCodigos() {
-
-            document.getElementById(
-                "modalCodigos"
-            ).style.display = "none";
-        }
-
-
-        /* =====================================================
-           COPIAR CÓDIGO INDIVIDUAL
-        ===================================================== */
-
-        async function copiarCodigo(index, botao) {
-
-            const item =
-                codigos[index];
-
-            const texto =
-                `${item.codigo} – ${item.texto}`;
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    texto
-                );
-
-            } catch (erro) {
-
-                const area =
-                    document.createElement(
-                        "textarea"
-                    );
-
-                area.value = texto;
-
-                document.body.appendChild(area);
-
-                area.select();
-
-                document.execCommand("copy");
-
-                area.remove();
-            }
-
-
-            botao.innerHTML =
-                "✅ Copiado!";
-
-            botao.classList.add("copiado");
-
-            setTimeout(() => {
-
-                botao.innerHTML =
-                    "📋 Copiar";
-
-                botao.classList.remove(
-                    "copiado"
-                );
-
-            }, 2000);
-        }
-
-
-        /* =====================================================
-           COPIAR TODOS OS CÓDIGOS
-        ===================================================== */
-
-        async function copiarTodosCodigos() {
-
-            const botao =
-                document.getElementById(
-                    "botaoCopiarCompleto"
-                );
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    textoCodigoFinal
-                );
-
-            } catch (erro) {
-
-                const area =
-                    document.createElement(
-                        "textarea"
-                    );
-
-                area.value =
-                    textoCodigoFinal;
-
-                document.body.appendChild(area);
-
-                area.select();
-
-                document.execCommand("copy");
-
-                area.remove();
-            }
-
-
-            botao.innerHTML =
-                "✅ Texto copiado!";
-
-            setTimeout(() => {
-
-                botao.innerHTML =
-                    "📋 Copiar texto completo";
-
-            }, 2000);
-        }
-
-
-        /* =====================================================
-           ADICIONAR PASSO
-        ===================================================== */
-
-        function adicionarPasso() {
-
-            const lista =
-                document.getElementById(
-                    "listaPassos"
-                );
-
-            const quantidade =
-                lista.querySelectorAll(
-                    ".passo"
-                ).length;
-
-            const passo =
-                document.createElement("div");
-
-            passo.className = "passo";
-
-            passo.innerHTML = `
-
-                <div class="numero-passo">
-                    ${quantidade + 1}
-                </div>
-
-                <input
-                    type="text"
-                    class="input-passo"
-                    placeholder="Descreva o passo"
-                >
-
-            `;
-
-            lista.appendChild(passo);
-        }
-
-
-        /* =====================================================
-           SALVAR NOVA SOLUÇÃO
-        ===================================================== */
-
-        function salvarSolucao() {
-
-            const nome =
-                document.getElementById(
-                    "nomeSolucao"
-                ).value.trim();
-
-
-            const categoria =
-                document.getElementById(
-                    "categoriaSolucao"
-                ).value;
-
-
-            const palavras =
-                document.getElementById(
-                    "palavrasSolucao"
-                ).value
-                    .split(",")
-                    .map(p => p.trim())
-                    .filter(p => p !== "");
-
-
-            const descricao =
-                document.getElementById(
-                    "descricaoSolucao"
-                ).value.trim();
-
-
-            const script =
-                document.getElementById(
-                    "scriptSolucao"
-                ).value.trim();
-
-
-            const inputsPassos =
-                document.querySelectorAll(
-                    ".input-passo"
-                );
-
-
-            const passos = [];
-
-
-            inputsPassos.forEach(input => {
-
-                const valor =
-                    input.value.trim();
-
-                if (valor !== "") {
-
-                    passos.push(valor);
-                }
-            });
-
-
-            if (!nome) {
-
-                alert(
-                    "Digite o nome da solução."
-                );
-
-                return;
-            }
-
-
-            if (!descricao) {
-
-                alert(
-                    "Digite uma descrição."
-                );
-
-                return;
-            }
-
-
-            if (passos.length === 0) {
-
-                alert(
-                    "Adicione pelo menos um passo."
-                );
-
-                return;
-            }
-
-
-            if (!script) {
-
-                alert(
-                    "Digite o script de encerramento."
-                );
-
-                return;
-            }
-
-
-            const novaSolucao = {
-
-                id:
-                    "custom_" +
-                    Date.now(),
-
-                nome: nome,
-
-                categoria: categoria,
-
-                palavras: palavras,
-
-                descricao: descricao,
-
-                passos: passos,
-
-                script: script
-            };
-
-
-            let solucoes =
-                JSON.parse(
-                    localStorage.getItem(
-                        "solucoesPersonalizadas"
-                    )
-                ) || [];
-
-
-            solucoes.push(novaSolucao);
-
-
-            localStorage.setItem(
-                "solucoesPersonalizadas",
-                JSON.stringify(solucoes)
-            );
-
-
-            alert(
-                "✅ Solução cadastrada com sucesso!"
-            );
-
-
-            limparFormulario();
-
-            fecharModal();
-
-        }
-
-
-        /* =====================================================
-           LIMPAR FORMULÁRIO
-        ===================================================== */
-
-        function limparFormulario() {
-
-            document.getElementById(
-                "nomeSolucao"
-            ).value = "";
-
-            document.getElementById(
-                "palavrasSolucao"
-            ).value = "";
-
-            document.getElementById(
-                "descricaoSolucao"
-            ).value = "";
-
-            document.getElementById(
-                "scriptSolucao"
-            ).value = "";
-
-
-            document.getElementById(
-                "listaPassos"
-            ).innerHTML = `
+            <div
+                class="passos"
+                id="passos"
+            >
 
                 <div class="passo">
 
@@ -3109,94 +1527,1729 @@ Realizamos todos os testes possiveis para tentar solucionar o problema, troca de
                     <input
                         type="text"
                         class="input-passo"
-                        placeholder="Ex: Verificar serviço"
+                        placeholder="Digite o primeiro passo"
                     >
 
                 </div>
 
-
-                <div class="passo">
-
-                    <div class="numero-passo">
-                        2
-                    </div>
-
-                    <input
-                        type="text"
-                        class="input-passo"
-                        placeholder="Ex: Reiniciar serviço"
-                    >
-
-                </div>
+            </div>
 
 
-                <div class="passo">
+            <button
+                type="button"
+                class="botao-adicionar-passo"
+                onclick="adicionarPasso()"
+            >
+                + Adicionar passo
+            </button>
 
-                    <div class="numero-passo">
-                        3
-                    </div>
+        </div>
 
-                    <input
-                        type="text"
-                        class="input-passo"
-                        placeholder="Ex: Fazer teste"
-                    >
 
-                </div>
+        <div class="campo-form">
 
-            `;
+            <label for="novoScript">
+                Script / Comando
+            </label>
+
+            <textarea
+                id="novoScript"
+                class="campo-script"
+                placeholder="Cole aqui o script ou comando, se houver..."
+            ></textarea>
+
+            <div class="ajuda-script">
+                Campo opcional. Você pode adicionar comandos,
+                PowerShell, CMD ou outros scripts.
+            </div>
+
+        </div>
+
+
+        <button
+            class="botao-salvar"
+            onclick="salvarSolucao()"
+        >
+            💾 Salvar solução
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL - CÓDIGOS
+===================================================== -->
+
+<div
+    class="modal-fundo"
+    id="modalCodigos"
+>
+
+    <div class="modal modal-codigos">
+
+        <div class="modal-cabecalho">
+
+            <h2>
+                📋 Códigos e Scripts
+            </h2>
+
+            <button
+                class="fechar"
+                onclick="fecharModalCodigos()"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <div
+            class="lista-codigos"
+            id="listaCodigos"
+        ></div>
+
+
+        <div class="codigo-completo">
+
+            <h3>
+                Código completo
+            </h3>
+
+            <div
+                class="texto-codigo-completo"
+                id="textoCodigoCompleto"
+            >
+                Selecione um código acima para visualizar.
+            </div>
+
+            <button
+                class="botao-copiar-completo"
+                id="botaoCopiarCompleto"
+                onclick="copiarCodigoCompleto()"
+            >
+                📋 Copiar código completo
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       BANCO DE SOLUÇÕES
+    ===================================================== */
+
+    let solucoes = [
+
+        {
+            categoria: "áudio",
+
+            titulo: "Problema de áudio",
+
+            descricao:
+                "O computador está sem áudio ou o dispositivo de reprodução não está funcionando corretamente.",
+
+            passos: [
+                "Verifique se o volume do computador está ativado.",
+                "Confirme se o dispositivo de saída correto está selecionado.",
+                "Desconecte e conecte novamente o dispositivo de áudio.",
+                "Reinicie o serviço de áudio do Windows.",
+                "Teste novamente o áudio."
+            ],
+
+            script:
+                "services.msc\n\nProcure por:\nWindows Audio\n\nClique com o botão direito e selecione Reiniciar."
+        },
+
+
+        {
+            categoria: "vpn",
+
+            titulo: "VPN não conecta",
+
+            descricao:
+                "A conexão VPN não está sendo estabelecida ou apresenta erro durante a conexão.",
+
+            passos: [
+                "Verifique se a internet está funcionando.",
+                "Confirme se as credenciais estão corretas.",
+                "Feche o aplicativo da VPN.",
+                "Abra novamente o aplicativo como administrador.",
+                "Tente realizar a conexão novamente."
+            ],
+
+            script:
+                "ipconfig /flushdns\nipconfig /release\nipconfig /renew"
+        },
+
+
+        {
+            categoria: "goto",
+
+            titulo: "Erro WMI no GoTo",
+
+            descricao:
+                "O GoTo pode apresentar problemas relacionados ao serviço WMI do Windows.",
+
+            passos: [
+                "Feche completamente o GoTo.",
+                "Abra o Prompt de Comando como administrador.",
+                "Execute o comando abaixo.",
+                "Reinicie o computador.",
+                "Abra o GoTo novamente."
+            ],
+
+            script:
+                "winmgmt /verifyrepository\n\nSe necessário:\nwinmgmt /salvagerepository"
+        },
+
+
+        {
+            categoria: "vban",
+
+            titulo: "VBAN sem áudio",
+
+            descricao:
+                "O VBAN está conectado, porém o áudio não está sendo transmitido ou recebido.",
+
+            passos: [
+                "Abra o aplicativo de áudio.",
+                "Verifique se o VBAN está habilitado.",
+                "Confirme o endereço IP do computador de destino.",
+                "Verifique se as portas utilizadas estão liberadas.",
+                "Teste novamente a transmissão."
+            ],
+
+            script:
+                "ipconfig\n\nVerifique o IPv4 do computador."
+        },
+
+
+        {
+            categoria: "front end",
+
+            titulo: "Problema de acesso Front-End",
+
+            descricao:
+                "O usuário não consegue acessar o sistema ou a página do Front-End.",
+
+            passos: [
+                "Verifique a conexão com a internet.",
+                "Teste o acesso em outro navegador.",
+                "Limpe o cache do navegador.",
+                "Confirme se a VPN está conectada.",
+                "Tente acessar o sistema novamente."
+            ],
+
+            script:
+                "Ctrl + Shift + Delete\n\nLimpe o cache e os cookies do navegador."
+        }
+
+    ];
+
+
+
+    /* =====================================================
+       CÓDIGOS
+    ===================================================== */
+
+    const codigos = [
+
+        {
+            numero: "Código 01",
+
+            titulo: "Limpar DNS",
+
+            codigo:
+                "ipconfig /flushdns"
+        },
+
+
+        {
+            numero: "Código 02",
+
+            titulo: "Renovar IP",
+
+            codigo:
+                "ipconfig /release\nipconfig /renew"
+        },
+
+
+        {
+            numero: "Código 03",
+
+            titulo: "Verificar IP",
+
+            codigo:
+                "ipconfig"
+        },
+
+
+        {
+            numero: "Código 04",
+
+            titulo: "Verificar WMI",
+
+            codigo:
+                "winmgmt /verifyrepository"
+        },
+
+
+        {
+            numero: "Código 05",
+
+            titulo: "Reparar WMI",
+
+            codigo:
+                "winmgmt /salvagerepository"
+        },
+
+
+        {
+            numero: "Código 06",
+
+            titulo: "Abrir Serviços do Windows",
+
+            codigo:
+                "services.msc"
+        }
+
+    ];
+
+
+    let codigoSelecionado = null;
+
+
+
+    /* =====================================================
+       TELA DE BOAS-VINDAS
+    ===================================================== */
+
+    function iniciarBoasVindas() {
+
+        const tela =
+            document.getElementById(
+                "telaBoasVindas"
+            );
+
+        const pontos =
+            document.getElementById(
+                "pontosBoasVindas"
+            );
+
+        if (!tela || !pontos) {
+            return;
+        }
+
+        let quantidade = 0;
+
+        const animacaoPontos =
+            setInterval(() => {
+
+                quantidade++;
+
+                if (quantidade > 3) {
+                    quantidade = 0;
+                }
+
+                pontos.textContent =
+                    ".".repeat(quantidade);
+
+            }, 350);
+
+
+        setTimeout(() => {
+
+            clearInterval(
+                animacaoPontos
+            );
+
+            tela.classList.add(
+                "ocultar"
+            );
+
+            setTimeout(() => {
+
+                tela.remove();
+
+            }, 900);
+
+        }, 3000);
+
+    }
+
+
+
+    /* =====================================================
+       BUSCA
+    ===================================================== */
+
+    function campoDigitado() {
+
+        const input =
+            document.getElementById(
+                "chamado"
+            );
+
+        const botaoLimpar =
+            document.getElementById(
+                "botaoLimpar"
+            );
+
+        const texto =
+            input.value.trim();
+
+
+        botaoLimpar.style.display =
+            texto
+                ? "block"
+                : "none";
+
+
+        mostrarSugestoes(texto);
+
+    }
+
+
+
+    function mostrarSugestoes(texto) {
+
+        const container =
+            document.getElementById(
+                "sugestoes"
+            );
+
+
+        if (!texto) {
+
+            container.style.display =
+                "none";
+
+            container.innerHTML =
+                "";
+
+            return;
         }
 
 
-        /* =====================================================
-           FECHAR MODAIS CLICANDO FORA
-        ===================================================== */
+        const termo =
+            normalizar(texto);
 
-        document
-            .getElementById("modalFundo")
-            .addEventListener(
-                "click",
-                function(event) {
 
-                    if (
-                        event.target === this
-                    ) {
+        const resultados =
+            solucoes
+                .filter(solucao => {
 
-                        fecharModal();
-                    }
+                    return (
 
-                }
+                        normalizar(
+                            solucao.titulo
+                        ).includes(termo)
+
+                        ||
+
+                        normalizar(
+                            solucao.categoria
+                        ).includes(termo)
+
+                        ||
+
+                        normalizar(
+                            solucao.descricao
+                        ).includes(termo)
+
+                    );
+
+                })
+                .slice(0, 5);
+
+
+        if (
+            resultados.length === 0
+        ) {
+
+            container.style.display =
+                "none";
+
+            return;
+        }
+
+
+        container.innerHTML =
+            resultados
+                .map((solucao, index) => {
+
+                    return `
+
+                        <div
+                            class="sugestao"
+                            onclick="selecionarSugestao(${index}, '${escapeAtributo(solucao.titulo)}')"
+                        >
+
+                            <div
+                                class="sugestao-titulo"
+                            >
+                                ${escapeHTML(solucao.titulo)}
+                            </div>
+
+                            <div
+                                class="sugestao-categoria"
+                            >
+                                ${escapeHTML(solucao.categoria)}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("");
+
+
+        container.style.display =
+            "block";
+
+    }
+
+
+
+    function selecionarSugestao(
+        index,
+        titulo
+    ) {
+
+        const input =
+            document.getElementById(
+                "chamado"
+            );
+
+        input.value =
+            titulo;
+
+        document.getElementById(
+            "sugestoes"
+        ).style.display =
+            "none";
+
+        document.getElementById(
+            "botaoLimpar"
+        ).style.display =
+            "block";
+
+        buscarChamado();
+
+    }
+
+
+
+    function pressionouEnter(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            buscarChamado();
+
+        }
+
+    }
+
+
+
+    function buscarChamado() {
+
+        const input =
+            document.getElementById(
+                "chamado"
+            );
+
+        const texto =
+            input.value.trim();
+
+
+        if (!texto) {
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        const termo =
+            normalizar(texto);
+
+
+        const resultado =
+            solucoes.find(solucao => {
+
+                return (
+
+                    normalizar(
+                        solucao.titulo
+                    ).includes(termo)
+
+                    ||
+
+                    normalizar(
+                        solucao.categoria
+                    ).includes(termo)
+
+                    ||
+
+                    normalizar(
+                        solucao.descricao
+                    ).includes(termo)
+
+                );
+
+            });
+
+
+        if (resultado) {
+
+            mostrarResultado(
+                resultado
+            );
+
+            adicionarHistorico(
+                resultado.titulo
+            );
+
+        } else {
+
+            mostrarNaoEncontrado(
+                texto
+            );
+
+        }
+
+
+        document.getElementById(
+            "sugestoes"
+        ).style.display =
+            "none";
+
+    }
+
+
+
+    function buscarCategoria(
+        categoria
+    ) {
+
+        const resultado =
+            solucoes.find(solucao =>
+                normalizar(
+                    solucao.categoria
+                ) ===
+                normalizar(categoria)
             );
 
 
-        document
-            .getElementById("modalCodigos")
-            .addEventListener(
-                "click",
-                function(event) {
+        if (resultado) {
 
-                    if (
-                        event.target === this
-                    ) {
+            document.getElementById(
+                "chamado"
+            ).value =
+                resultado.titulo;
 
-                        fecharModalCodigos();
-                    }
+            document.getElementById(
+                "botaoLimpar"
+            ).style.display =
+                "block";
 
-                }
+            mostrarResultado(
+                resultado
+            );
+
+            adicionarHistorico(
+                resultado.titulo
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       MOSTRAR RESULTADO
+    ===================================================== */
+
+    function mostrarResultado(
+        solucao
+    ) {
+
+        const resultado =
+            document.getElementById(
+                "resultado"
             );
 
 
-        /* =====================================================
-           INICIALIZAÇÃO
-        ===================================================== */
+        const passosHTML =
+            solucao.passos
+                .map((passo, index) => {
 
-        carregarTema();
+                    return `
+                        <p>
+                            <strong>
+                                ${index + 1}.
+                            </strong>
+                            ${escapeHTML(passo)}
+                        </p>
+                    `;
 
-        mostrarHistorico();
+                })
+                .join("");
 
-        atualizarEstatisticas();
 
-    </script>
+        resultado.innerHTML = `
+
+            <h2>
+                ${escapeHTML(solucao.titulo)}
+            </h2>
+
+            <p>
+                <strong>
+                    Categoria:
+                </strong>
+
+                ${escapeHTML(solucao.categoria)}
+            </p>
+
+            <p>
+                <strong>
+                    Problema:
+                </strong>
+
+                ${escapeHTML(solucao.descricao)}
+            </p>
+
+
+            <div class="bloco-script">
+
+                <div class="titulo-script">
+
+                    <strong>
+                        🛠️ Passos para solução
+                    </strong>
+
+                </div>
+
+
+                ${passosHTML}
+
+
+                ${
+                    solucao.script
+                    ?
+                    `
+
+                        <div
+                            style="
+                                margin-top:20px;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    font-weight:bold;
+                                    margin-bottom:8px;
+                                "
+                            >
+                                💻 Script / Comando
+                            </div>
+
+                            <div
+                                class="area-script"
+                                id="scriptResultado"
+                            >${escapeHTML(solucao.script)}</div>
+
+                            <button
+                                class="botao-copiar"
+                                onclick="copiarTexto('${escapeAtributo(solucao.script)}', this)"
+                            >
+                                📋 Copiar
+                            </button>
+
+                        </div>
+
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+
+            <div class="avaliacao">
+
+                <p>
+                    Essa solução resolveu o problema?
+                </p>
+
+                <div class="botoes-avaliacao">
+
+                    <button
+                        class="btn-resolvido"
+                        onclick="avaliarSolucao(true)"
+                    >
+                        👍 Resolvido
+                    </button>
+
+                    <button
+                        class="btn-nao-resolvido"
+                        onclick="avaliarSolucao(false)"
+                    >
+                        👎 Não resolvido
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        resultado.style.display =
+            "block";
+
+
+        resultado.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+
+    function mostrarNaoEncontrado(
+        texto
+    ) {
+
+        const resultado =
+            document.getElementById(
+                "resultado"
+            );
+
+
+        resultado.innerHTML = `
+
+            <h2>
+                🔎 Chamado não encontrado
+            </h2>
+
+            <p>
+                Não encontramos uma solução
+                cadastrada para:
+            </p>
+
+            <p>
+                <strong>
+                    "${escapeHTML(texto)}"
+                </strong>
+            </p>
+
+            <p>
+                Tente utilizar termos como
+                <strong>VPN</strong>,
+                <strong>VBAN</strong>,
+                <strong>GoTo</strong>,
+                <strong>áudio</strong>
+                ou
+                <strong>Front-End</strong>.
+            </p>
+
+        `;
+
+
+        resultado.style.display =
+            "block";
+
+
+        resultado.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+
+
+    /* =====================================================
+       AVALIAÇÃO
+    ===================================================== */
+
+    function avaliarSolucao(
+        resolvido
+    ) {
+
+        if (resolvido) {
+
+            alert(
+                "Ótimo! Solução marcada como resolvida. 👍"
+            );
+
+        } else {
+
+            alert(
+                "Entendido. Essa solução foi marcada como não resolvida. 👎"
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       HISTÓRICO
+    ===================================================== */
+
+    function obterHistorico() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "helpToHelpHistorico"
+                )
+            ) || [];
+
+        } catch (erro) {
+
+            return [];
+
+        }
+
+    }
+
+
+
+    function adicionarHistorico(
+        titulo
+    ) {
+
+        let historico =
+            obterHistorico();
+
+
+        historico =
+            historico.filter(
+                item =>
+                    item.nome !== titulo
+            );
+
+
+        historico.unshift({
+
+            nome: titulo,
+
+            hora:
+                new Date().toLocaleTimeString(
+                    "pt-BR",
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }
+                )
+
+        });
+
+
+        historico =
+            historico.slice(0, 8);
+
+
+        localStorage.setItem(
+            "helpToHelpHistorico",
+            JSON.stringify(
+                historico
+            )
+        );
+
+
+        renderizarHistorico();
+
+    }
+
+
+
+    function renderizarHistorico() {
+
+        const lista =
+            document.getElementById(
+                "listaHistorico"
+            );
+
+
+        const historico =
+            obterHistorico();
+
+
+        if (
+            historico.length === 0
+        ) {
+
+            lista.innerHTML = `
+
+                <div class="sem-historico">
+                    Nenhuma pesquisa realizada ainda.
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        lista.innerHTML =
+            historico
+                .map(item => {
+
+                    return `
+
+                        <div
+                            class="item-historico"
+                            onclick="abrirDoHistorico('${escapeAtributo(item.nome)}')"
+                        >
+
+                            <span class="nome">
+                                ${escapeHTML(item.nome)}
+                            </span>
+
+                            <span class="hora">
+                                ${escapeHTML(item.hora)}
+                            </span>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("");
+
+    }
+
+
+
+    function abrirDoHistorico(
+        titulo
+    ) {
+
+        const resultado =
+            solucoes.find(
+                solucao =>
+                    solucao.titulo === titulo
+            );
+
+
+        if (resultado) {
+
+            document.getElementById(
+                "chamado"
+            ).value =
+                resultado.titulo;
+
+            document.getElementById(
+                "botaoLimpar"
+            ).style.display =
+                "block";
+
+            mostrarResultado(
+                resultado
+            );
+
+        }
+
+    }
+
+
+
+    function limparHistorico() {
+
+        localStorage.removeItem(
+            "helpToHelpHistorico"
+        );
+
+        renderizarHistorico();
+
+    }
+
+
+
+    function limparBusca() {
+
+        document.getElementById(
+            "chamado"
+        ).value =
+            "";
+
+        document.getElementById(
+            "botaoLimpar"
+        ).style.display =
+            "none";
+
+        document.getElementById(
+            "sugestoes"
+        ).style.display =
+            "none";
+
+        document.getElementById(
+            "resultado"
+        ).style.display =
+            "none";
+
+        document.getElementById(
+            "chamado"
+        ).focus();
+
+    }
+
+
+
+    /* =====================================================
+       MODAL NOVA SOLUÇÃO
+    ===================================================== */
+
+    function abrirModal() {
+
+        document.getElementById(
+            "modalFundo"
+        ).style.display =
+            "flex";
+
+    }
+
+
+
+    function fecharModal() {
+
+        document.getElementById(
+            "modalFundo"
+        ).style.display =
+            "none";
+
+    }
+
+
+
+    function adicionarPasso() {
+
+        const container =
+            document.getElementById(
+                "passos"
+            );
+
+
+        const quantidade =
+            container.querySelectorAll(
+                ".passo"
+            ).length + 1;
+
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.className =
+            "passo";
+
+
+        div.innerHTML = `
+
+            <div class="numero-passo">
+                ${quantidade}
+            </div>
+
+            <input
+                type="text"
+                class="input-passo"
+                placeholder="Digite o passo ${quantidade}"
+            >
+
+        `;
+
+
+        container.appendChild(
+            div
+        );
+
+    }
+
+
+
+    function salvarSolucao() {
+
+        const categoria =
+            document.getElementById(
+                "novaCategoria"
+            ).value.trim();
+
+
+        const titulo =
+            document.getElementById(
+                "novoTitulo"
+            ).value.trim();
+
+
+        const descricao =
+            document.getElementById(
+                "novaDescricao"
+            ).value.trim();
+
+
+        const script =
+            document.getElementById(
+                "novoScript"
+            ).value.trim();
+
+
+        const inputsPassos =
+            document.querySelectorAll(
+                ".input-passo"
+            );
+
+
+        const passos =
+            Array.from(
+                inputsPassos
+            )
+                .map(input =>
+                    input.value.trim()
+                )
+                .filter(Boolean);
+
+
+        if (
+            !categoria ||
+            !titulo ||
+            !descricao ||
+            passos.length === 0
+        ) {
+
+            alert(
+                "Preencha categoria, título, descrição e pelo menos um passo."
+            );
+
+            return;
+
+        }
+
+
+        const novaSolucao = {
+
+            categoria:
+                categoria,
+
+            titulo:
+                titulo,
+
+            descricao:
+                descricao,
+
+            passos:
+                passos,
+
+            script:
+                script
+
+        };
+
+
+        solucoes.push(
+            novaSolucao
+        );
+
+
+        fecharModal();
+
+
+        limparFormulario();
+
+
+        alert(
+            "Solução cadastrada com sucesso! ✅"
+        );
+
+    }
+
+
+
+    function limparFormulario() {
+
+        document.getElementById(
+            "novaCategoria"
+        ).value =
+            "";
+
+        document.getElementById(
+            "novoTitulo"
+        ).value =
+            "";
+
+        document.getElementById(
+            "novaDescricao"
+        ).value =
+            "";
+
+        document.getElementById(
+            "novoScript"
+        ).value =
+            "";
+
+
+        document.getElementById(
+            "passos"
+        ).innerHTML = `
+
+            <div class="passo">
+
+                <div class="numero-passo">
+                    1
+                </div>
+
+                <input
+                    type="text"
+                    class="input-passo"
+                    placeholder="Digite o primeiro passo"
+                >
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =====================================================
+       MODAL CÓDIGOS
+    ===================================================== */
+
+    function abrirModalCodigos() {
+
+        renderizarCodigos();
+
+
+        document.getElementById(
+            "modalCodigos"
+        ).style.display =
+            "flex";
+
+    }
+
+
+
+    function fecharModalCodigos() {
+
+        document.getElementById(
+            "modalCodigos"
+        ).style.display =
+            "none";
+
+    }
+
+
+
+    function renderizarCodigos() {
+
+        const lista =
+            document.getElementById(
+                "listaCodigos"
+            );
+
+
+        lista.innerHTML =
+            codigos
+                .map((item, index) => {
+
+                    return `
+
+                        <div class="codigo-item">
+
+                            <div class="codigo-topo">
+
+                                <div>
+
+                                    <div class="codigo-numero">
+                                        ${escapeHTML(item.numero)}
+                                    </div>
+
+                                    <div
+                                        style="
+                                            margin-top:4px;
+                                            font-weight:bold;
+                                        "
+                                    >
+                                        ${escapeHTML(item.titulo)}
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    class="botao-copiar-codigo"
+                                    onclick="selecionarCodigo(${index}, this)"
+                                >
+                                    📋 Copiar
+                                </button>
+
+                            </div>
+
+
+                            <div class="codigo-texto">
+                                ${escapeHTML(item.codigo)}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("");
+
+    }
+
+
+
+    function selecionarCodigo(
+        index,
+        botao
+    ) {
+
+        codigoSelecionado =
+            codigos[index].codigo;
+
+
+        document.getElementById(
+            "textoCodigoCompleto"
+        ).textContent =
+            codigoSelecionado;
+
+
+        document
+            .querySelectorAll(
+                ".botao-copiar-codigo"
+            )
+            .forEach(btn => {
+
+                btn.classList.remove(
+                    "copiado"
+                );
+
+                btn.textContent =
+                    "📋 Copiar";
+
+            });
+
+
+        copiarTexto(
+            codigoSelecionado,
+            botao
+        );
+
+    }
+
+
+
+    function copiarCodigoCompleto() {
+
+        if (!codigoSelecionado) {
+
+            alert(
+                "Selecione um código primeiro."
+            );
+
+            return;
+
+        }
+
+
+        copiarTexto(
+            codigoSelecionado,
+            document.getElementById(
+                "botaoCopiarCompleto"
+            )
+        );
+
+    }
+
+
+
+    /* =====================================================
+       TEMA
+    ===================================================== */
+
+    function alternarTema() {
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+        const ativo =
+            document.body.classList.contains(
+                "dark"
+            );
+
+
+        document.getElementById(
+            "botaoTema"
+        ).textContent =
+            ativo
+                ? "☀️ Light"
+                : "🌙 Dark";
+
+
+        localStorage.setItem(
+            "helpToHelpTema",
+            ativo
+                ? "dark"
+                : "light"
+        );
+
+    }
+
+
+
+    function carregarTema() {
+
+        const tema =
+            localStorage.getItem(
+                "helpToHelpTema"
+            );
+
+
+        if (tema === "dark") {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+
+            document.getElementById(
+                "botaoTema"
+            ).textContent =
+                "☀️ Light";
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       COPIAR TEXTO
+    ===================================================== */
+
+    function copiarTexto(
+        texto,
+        botao
+    ) {
+
+        navigator.clipboard
+            .writeText(texto)
+            .then(() => {
+
+                const textoOriginal =
+                    botao.textContent;
+
+
+                botao.classList.add(
+                    "copiado"
+                );
+
+
+                botao.textContent =
+                    "✅ Copiado!";
+
+
+                setTimeout(() => {
+
+                    botao.classList.remove(
+                        "copiado"
+                    );
+
+                    botao.textContent =
+                        textoOriginal;
+
+                }, 1500);
+
+            })
+            .catch(() => {
+
+                alert(
+                    "Não foi possível copiar automaticamente."
+                );
+
+            });
+
+    }
+
+
+
+    /* =====================================================
+       FUNÇÕES AUXILIARES
+    ===================================================== */
+
+    function normalizar(
+        texto
+    ) {
+
+        return texto
+            .toLowerCase()
+            .normalize(
+                "NFD"
+            )
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            );
+
+    }
+
+
+
+    function escapeHTML(
+        texto
+    ) {
+
+        return String(texto)
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+
+
+    function escapeAtributo(
+        texto
+    ) {
+
+        return String(texto)
+            .replace(
+                /\\/g,
+                "\\\\"
+            )
+            .replace(
+                /'/g,
+                "\\'"
+            )
+            .replace(
+                /\r?\n/g,
+                "\\n"
+            );
+
+    }
+
+
+
+    /* =====================================================
+       FECHAR MODAIS AO CLICAR FORA
+    ===================================================== */
+
+    document
+        .getElementById(
+            "modalFundo"
+        )
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    this
+                ) {
+
+                    fecharModal();
+
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "modalCodigos"
+        )
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    this
+                ) {
+
+                    fecharModalCodigos();
+
+                }
+
+            }
+        );
+
+
+
+    /* =====================================================
+       INICIALIZAÇÃO
+    ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            iniciarBoasVindas();
+
+            carregarTema();
+
+            renderizarHistorico();
+
+        }
+    );
+
+
+</script>
+
 
 </body>
 
